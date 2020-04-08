@@ -5,3 +5,33 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+puts "Cleaning database..."
+
+Article.destroy_all
+User.destroy_all
+
+
+puts "Creating users..."
+user1 = User.new(password: "password", email: "ludo@bbgc.com")
+user2 = User.new(password: "password", email: "gef@bbgc.com")
+
+
+[ user1, user2 ].each do |user|
+  user.save
+  puts "Created #{user.email}"
+end
+
+article1 = Article.new(title:"#{Faker::Lorem.word}", content: "#{Faker::Lorem.paragraph(sentence_count: 25)}", category: "news")
+article2 = Article.new(title:"#{Faker::Lorem.word}", content: "#{Faker::Lorem.paragraph(sentence_count: 45)}", category: "résultats")
+article3 = Article.new(title:"#{Faker::Lorem.word}", content: "#{Faker::Lorem.paragraph(sentence_count: 55)}", category: "strategie")
+article4 = Article.new(title:"#{Faker::Lorem.word}", content: "#{Faker::Lorem.paragraph(sentence_count: 37)}", category: "article")
+
+
+[ article1, article2, article3, article4 ].each do |article|
+  article.save
+  puts "Created #{article.title}"
+end
+
+
+
+puts "Finished..."
