@@ -3,7 +3,7 @@
   <div>
     <p><%= article.category %></p>
     <h3><%= article.title %></h3>
-    <p><%= article.content %></p>
+    <p><%= article.content.split.first(30).join(" ") %>...</p>
     <%= link_to "lire", article_path(article) %>
     <%= link_to "modifier", edit_article_path(article)%>
     <%= link_to "supprimer", article_path(article), method: :delete, data: {confirm: "Certain de vouloir supprimer cet article?"} %>

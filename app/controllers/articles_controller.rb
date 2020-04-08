@@ -1,4 +1,5 @@
 class ArticlesController < ApplicationController
+  before_action :set_article, only: [ :show, :edit, :update, :destroy ]
 
   def new
     @article = Article.new
@@ -9,31 +10,31 @@ class ArticlesController < ApplicationController
     if @article.save
       redirect_to root_path
     else
-      render new
+      render :new
     end
   end
 
   def show
-    @article = Article.find(params[:id])
   end
 
   def edit
-    @article = Article.find(params[:id])
   end
 
   def update
-    @article = Article.find(params[:id])
     @article.update(articles_params)
     redirect_to article_path(@article)
   end
 
   def destroy
-    @article = Article.find(params[:id])
+
     @article.destroy
     redirect_to root_path
   end
 
   private
+  def set_article
+    @article = Article.find(params[:id])
+  end
 
   def articles_params
     params.require(:article).permit(:title, :category, :content)
