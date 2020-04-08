@@ -7,7 +7,7 @@ class ArticlesController < ApplicationController
 
   def create
     @article = Article.new(articles_params)
-    if @article.save
+    if @article.save!
       redirect_to root_path
     else
       render :new
@@ -37,6 +37,6 @@ class ArticlesController < ApplicationController
   end
 
   def articles_params
-    params.require(:article).permit(:title, :category, :content, :photo)
+    params.require(:article).permit(:title, :category, :content, photos: [])
   end
 end
