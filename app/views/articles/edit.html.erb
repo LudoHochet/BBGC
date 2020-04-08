@@ -1,0 +1,8 @@
+<h2>edit artcile</h2>
+
+<%= simple_form_for @article do |f| %>
+  <%= f.input :title %>
+  <%= f.input :category, collection: Article::CATEGORY %>
+  <%= f.input :content %>
+  <%= f.submit %>
+<% end %>

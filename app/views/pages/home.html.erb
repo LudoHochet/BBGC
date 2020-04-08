@@ -1,8 +1,12 @@
 <h1>Pages#home</h1>
 <% @articles.each do |article| %>
-  <p><%= article.category %></p>
-  <h3><%= article.title %></h3>
-  <p><%= article.content %></p>
+  <div>
+    <p><%= article.category %></p>
+    <h3><%= article.title %></h3>
+    <p><%= article.content %></p>
+    <%= link_to "lire", article_path(article) %>
+    <%= link_to "modifier", edit_article(article)%>
+  </div>
 <% end %>
 
 <%= link_to "nouvel article", new_article_path, class:"btn btn-primary" %>

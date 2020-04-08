@@ -9,8 +9,22 @@ class ArticlesController < ApplicationController
     if @article.save
       redirect_to root_path
     else
-      rende new
+      render new
     end
+  end
+
+  def show
+    @article = Article.find(params[:id])
+  end
+
+  def edit
+    @article = Article.find(params[:id])
+  end
+
+  def update
+    @article = Article.find(params[:id])
+    @article.update(articles_params)
+    redirect_to article_path(@article)
   end
 
   private
