@@ -3,10 +3,12 @@ class ArticlesController < ApplicationController
 
   def new
     @article = Article.new
+    authorize @article
   end
 
   def create
     @article = Article.new(articles_params)
+    authorize @article
     if @article.save!
       redirect_to root_path
     else
