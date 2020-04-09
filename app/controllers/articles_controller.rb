@@ -34,6 +34,7 @@ class ArticlesController < ApplicationController
   private
   def set_article
     @article = Article.find(params[:id])
+    authorize @article
   end
 
   def articles_params
