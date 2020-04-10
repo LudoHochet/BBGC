@@ -1,22 +1,32 @@
-<h1 class="text-center">#</h1>
-<% if user_signed_in? && policy(@article).create? %>
-<%= link_to "nouvel article", new_article_path, class:"btn btn-primary" %>
-<% end %>
-<% @articles.each do |article| %>
-  <div class="border border-primary my-3">
-    <p><%= article.category %></p>
-    <h3><%= article.title %></h3>
-    <% if article.photos.attached? %>
-      <%= cl_image_tag article.photos.first.key, height: 300, width: 400, crop: :fill %>
-    <% end %>
-    <p><%= article.content.split.first(30).join(" ") %>...</p>
-    <%= link_to "lire", article_path(article) %>
-    <% if user_signed_in? && policy(article).update? %>
-      <%= link_to "modifier", edit_article_path(article)%>
-    <% end %>
-    <% if user_signed_in? && policy(article).destroy? %>
-      <%= link_to "supprimer", article_path(article), method: :delete, data: {confirm: "Certain de vouloir supprimer cet article?"} %>
-    <% end %>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://cdn.pixabay.com/photo/2019/02/25/11/39/backgammon-board-4019437_960_720.jpg);">>
+  <div class="container">
+    <h1>Broceliande</h1>
+    <h1>BackGammon</h1>
+    <h1>Club</h1>
   </div>
-<% end %>
+</div>
+
+<div class="container">
+  <h1 class="text-center">#</h1>
+  <% if user_signed_in? && policy(@article).create? %>
+    <%= link_to "nouvel article", new_article_path, class:"btn btn-primary" %>
+  <% end %>
+  <% @articles.each do |article| %>
+    <div class="border border-primary my-3">
+      <p><%= article.category %></p>
+      <h3><%= article.title %></h3>
+      <% if article.photos.attached? %>
+        <%= cl_image_tag article.photos.first.key, height: 300, width: 400, crop: :fill %>
+      <% end %>
+      <p><%= article.content.split.first(30).join(" ") %>...</p>
+      <%= link_to "lire", article_path(article) %>
+      <% if user_signed_in? && policy(article).update? %>
+        <%= link_to "modifier", edit_article_path(article)%>
+      <% end %>
+      <% if user_signed_in? && policy(article).destroy? %>
+        <%= link_to "supprimer", article_path(article), method: :delete, data: {confirm: "Certain de vouloir supprimer cet article?"} %>
+      <% end %>
+    </div>
+  <% end %>
+</div>
 
