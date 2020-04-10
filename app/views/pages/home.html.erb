@@ -1,4 +1,4 @@
-<h1>Pages#home</h1>
+<h1 class="text-center">#</h1>
 <% if user_signed_in? && policy(@article).create? %>
 <%= link_to "nouvel article", new_article_path, class:"btn btn-primary" %>
 <% end %>
