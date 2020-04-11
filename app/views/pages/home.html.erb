@@ -17,9 +17,6 @@
     </div>
   </div>
 
-  <% if user_signed_in? && policy(@article).create? %>
-    <%= link_to "nouvel article", new_article_path, class:"btn btn-primary" %>
-  <% end %>
 
   <div class="row">
     <% @articles.each do |article| %>
@@ -40,10 +37,14 @@
           <p class="card-content"><%= article.content.split.first(30).join(" ") %>...</p>
 
           <% if user_signed_in? && policy(article).update? %>
-            <%= link_to "modifier", edit_article_path(article)%>
+            <%= link_to edit_article_path(article) do %>
+              <i class="fas fa-edit" id="edit"></i>
+            <% end %>
           <% end %>
           <% if user_signed_in? && policy(article).destroy? %>
-            <%= link_to "supprimer", article_path(article), method: :delete, data: {confirm: "Certain de vouloir supprimer cet article?"} %>
+            <%= link_to article_path(article), method: :delete, data: {confirm: "Certain de vouloir supprimer cet article?"} do %>
+              <i class="fas fa-trash" id="delete"></i>
+            <% end %>
           <% end %>
         </div>
 
