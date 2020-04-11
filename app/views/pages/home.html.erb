@@ -1,12 +1,26 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://cdn.pixabay.com/photo/2019/02/25/11/39/backgammon-board-4019437_960_720.jpg);">>
-  <div class="container">
+  <!-- <div class="container">
     <h1>Broceliande</h1>
     <h1>BackGammon</h1>
     <h1>Club</h1>
-  </div>
-</div>
+  </div> -->
+  <!-- style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://cdn.pixabay.com/photo/2019/02/25/11/39/backgammon-board-4019437_960_720.jpg);" -->
 
 <div class="container">
+  <div class="container">
+    <div class="banner">
+      <div class="row">
+        <div class="col-sm-4 title">
+          <div>
+            <h1>Broceliande</h1>
+            <h1>BackGammon</h1>
+            <h1>Club</h1>
+          </div>
+        </div>
+        <div class="col-sm-8 photo" ></div>
+      </div>
+    </div>
+  </div>
+
   <h1 class="text-center">#</h1>
   <% if user_signed_in? && policy(@article).create? %>
     <%= link_to "nouvel article", new_article_path, class:"btn btn-primary" %>

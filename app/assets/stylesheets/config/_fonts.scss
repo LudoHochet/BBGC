@@ -1,9 +1,10 @@
 // Import Google fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito:400,700|Work+Sans:400,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Merriweather:400,700&display=swap');
 
 // Define fonts for body and headers
-$body-font: "Work Sans", "Helvetica", "sans-serif";
-$headers-font: "Nunito", "Helvetica", "sans-serif";
+// $body-font: "Work Sans", "Helvetica", "sans-serif";
+// $headers-font: "Nunito", "Helvetica", "sans-serif";
 
 // To use a font file (.woff) uncomment following lines
 // @font-face {
@@ -15,7 +16,7 @@ $headers-font: "Nunito", "Helvetica", "sans-serif";
 // }
 // $my-font: "Font Name";
 
-// @import url('https://fonts.googleapis.com/css?family=Montserrat:300,500,900&display=swap');
-// @import url('https://fonts.googleapis.com/css?family=Bitter:400,700&display=swap');
-// $body-font: 'Montserrat', sans-serif;
-// $headers-font: 'Bitter', serif;
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,500,900&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Bitter:400,700&display=swap');
+$body-font: 'Montserrat', sans-serif;
+$headers-font: 'Merriweather', serif;
