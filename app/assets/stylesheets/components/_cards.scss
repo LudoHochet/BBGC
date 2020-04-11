@@ -1,6 +1,6 @@
 .card-article {
   position: relative;
-  margin-bottom: 3rem;
+  margin-bottom: 5rem;
 }
 
 #category {
@@ -27,4 +27,11 @@
   text-align: justify;
   font-weight: lighter;
   font-size: 14px;
+}
+
+.card-article a {
+  color:black;
+  &:hover {
+    text-decoration: none;
+  }
 }
