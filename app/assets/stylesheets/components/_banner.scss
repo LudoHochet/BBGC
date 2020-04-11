@@ -1,0 +1,29 @@
+.banner {
+  padding-top: 50px;
+  padding-bottom: 100px;
+}
+.photo {
+  background-image: url(https://cdn.pixabay.com/photo/2016/12/13/12/04/backgammon-1903937__340.jpg);
+  background-size: cover;
+  background-position: center;
+  background-color: #85B3D3;
+  opacity: 0.8;
+  height: 400px;
+}
+
+.title {
+  padding: 0px;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+}
+
+.banner h1 {
+  margin: 0;
+  color: rgb(40,40,50);
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 72px;
+  font-weight: bold;
+  padding: 4px 0px;
+}
+

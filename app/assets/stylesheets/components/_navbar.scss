@@ -1,12 +1,16 @@
-.navbar-lewagon {
-  justify-content: space-between;
+.navbar-bbgc {
   background: white;
+  padding-top: 10px;
 }
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
+.navbar-bbgc img {
+  width: 110px;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+.navbar-side {
+  width: 300px;
+}
+
+.navbar-bbgc p {
+  font-weight: lighter;
 }

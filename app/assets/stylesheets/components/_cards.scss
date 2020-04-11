@@ -1,0 +1,30 @@
+.card-article {
+  position: relative;
+  margin-bottom: 3rem;
+}
+
+#category {
+  position: absolute;
+  background-color: $yellow;
+  padding: 2px 5px;
+  left: 10px;
+  top: -18px;
+}
+
+.card-article img {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.card-article h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+}
+
+.card-content {
+  text-align: justify;
+  font-weight: lighter;
+  font-size: 14px;
+}
