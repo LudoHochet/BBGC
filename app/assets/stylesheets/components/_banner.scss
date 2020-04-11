@@ -6,9 +6,10 @@
   background-image: url(https://cdn.pixabay.com/photo/2016/12/13/12/03/backgammon-1903935__340.jpg);
   background-size: cover;
   background-position: center;
-  background-color: #85B3D3;
-  opacity: 0.9;
+  // background-color: #85B3D3;
+  opacity: 0.8;
   height: 400px;
+  position: relative;
 }
 
 .title {
@@ -27,3 +28,28 @@
   padding: 4px 0px;
 }
 
+#quote {
+  color: rgb(40,40,50);
+  font-size: 72px;
+  position: absolute;
+  top: -50px;
+  //
+  left: 100px;
+}
+
+#citation {
+  color: white;
+  position: absolute;
+  font-size: 1.5rem;
+  left: 100px;
+  top: 25px;
+}
+
+#author {
+  color:white;
+  position: absolute;
+  left: 100px;
+  top: 60px;
+/* font-size: 1rem; */
+  font-weight: lighter;
+}
