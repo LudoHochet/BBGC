@@ -17,6 +17,17 @@
     </div>
   </div>
 
+<div class="my-6">
+  <%= form_tag root_path, method: :get do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "Find a article"
+    %>
+    <%= submit_tag "Search", class: "btn btn-primary" %>
+  <% end %>
+
+</div>
 
   <div class="row">
     <% @articles.each do |article| %>
@@ -38,12 +49,12 @@
 
           <% if user_signed_in? && policy(article).update? %>
             <%= link_to edit_article_path(article) do %>
-              <i class="fas fa-edit" id="edit"></i>
+              <i class="fas fa-edit" id="card-edit"></i>
             <% end %>
           <% end %>
           <% if user_signed_in? && policy(article).destroy? %>
             <%= link_to article_path(article), method: :delete, data: {confirm: "Certain de vouloir supprimer cet article?"} do %>
-              <i class="fas fa-trash" id="delete"></i>
+              <i class="fas fa-trash" id="card-delete"></i>
             <% end %>
           <% end %>
         </div>

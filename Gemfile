@@ -19,6 +19,8 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.7'
 # Use Redis adapter to run Action Cable in production
 gem 'redis', '~> 4.0'
+# search
+gem 'pg_search', '~> 2.3.0'
 # Use to make fake seeds
 gem 'faker'
 # Use Active Model has_secure_password
