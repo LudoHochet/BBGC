@@ -2,6 +2,7 @@ class ArticlesController < ApplicationController
   skip_before_action :authenticate_user!, only: :show
   before_action :set_article, only: [ :show, :edit, :update, :destroy ]
 
+
   def new
     @article = Article.new
     authorize @article
