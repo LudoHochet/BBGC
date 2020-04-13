@@ -6,6 +6,9 @@ class PagesController < ApplicationController
     # @articles = Article.all.order(:created_at)
     @articles = policy_scope(Article).order(created_at: :desc)
     @article = Article.new
+    if params[:query].present?
+      @articles = Article.search_global(params[:query])
+    end
   end
 end
 
