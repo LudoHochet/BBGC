@@ -21,6 +21,8 @@ gem 'jbuilder', '~> 2.7'
 gem 'redis', '~> 4.0'
 # search
 gem 'pg_search', '~> 2.3.0'
+# geolocalise the location
+gem 'geocoder'
 # Use to make fake seeds
 gem 'faker'
 # Use Active Model has_secure_password
