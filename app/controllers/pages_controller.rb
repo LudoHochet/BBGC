@@ -12,7 +12,14 @@ class PagesController < ApplicationController
   end
 
   def club
+    @locations = Location.geocoded # returns locations with coordinates
 
+    @markers = @locations.map do |location|
+      {
+        lat: location.latitude,
+        lng: location.longitude
+      }
+    end
   end
 end
 
