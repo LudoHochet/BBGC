@@ -18,8 +18,11 @@ class PagesController < ApplicationController
       {
         lat: location.latitude,
         lng: location.longitude
+        # infoWindow: render_to_string(partial: "info_window", locals: { location: location })
       }
+
     end
   end
+
 end
 
