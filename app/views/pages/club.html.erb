@@ -1,10 +1,13 @@
-<h2>le club</h2>
-<div class="d-flex">
-  <div>Club fondé en 2015 par Gérard Hochet </div>
-  <div id="map"
-     style="width: 100%; height: 600px;"
-     data-markers="<%= @markers.to_json %>"
-     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+<div class="container">
+  <h2>le club</h2>
+  <div class="row align-items-center">
+    <div class="col-sm-12 col-md-6">Club fondé en 2015 par Gérard Hochet </div>
+    <div class="col-sm-12 col-md-6" id="map"
+       style="width: 100%; height: 600px;"
+       data-markers="<%= @markers.to_json %>"
+       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
+
   </div>
 
 </div>
