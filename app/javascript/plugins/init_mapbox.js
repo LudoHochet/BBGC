@@ -9,6 +9,8 @@ const fitMapToMarkers = (map, markers) => {
 
 const initMapbox = () => {
   const mapElement = document.getElementById('map');
+  const isabelle = document.getElementById('isabelle');
+  const avec = document.getElementById('avec');
 
   if (mapElement) { // only build a map if there's a div#map to inject into
     mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
@@ -28,6 +30,14 @@ const initMapbox = () => {
         .addTo(map);
     });
     fitMapToMarkers(map, markers);
+    isabelle.addEventListener('click', () => {
+      const isaCenter = JSON.parse(isabelle.dataset.markers);
+      map.flyTo( {center: [isaCenter[0]["lng"], isaCenter[0]["lat"] ], zoom: 15});
+    });
+    avec.addEventListener('click', () => {
+      const avecCenter = JSON.parse(avec.dataset.markers);
+      map.flyTo( {center: [avecCenter[0]["lng"], avecCenter[0]["lat"] ], zoom: 15});
+    });
   }
 };
 

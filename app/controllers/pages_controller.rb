@@ -13,6 +13,12 @@ class PagesController < ApplicationController
 
   def club
     @locations = Location.geocoded # returns locations with coordinates
+    # get the coordonates for the location "Chez Isabelle"
+    @isabelle = Location.find_by name:"Chez Isabelle"
+    @isa_markers = [{lat: @isabelle.latitude, lng: @isabelle.longitude}]
+    # get the coordonates for the location "Avec"
+    @avec = Location.find_by name:"Avec"
+    @avec_markers = [{lat: @avec.latitude, lng: @avec.longitude}]
 
     @markers = @locations.map do |location|
       {
