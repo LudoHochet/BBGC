@@ -9,7 +9,7 @@
       <% if user_signed_in? && policy(@article).create? %>
         <p><%= link_to "nouvel article", new_article_path, class:"btn-black-border" %></p>
       <% end %>
-      <p class="links px-3"><%= link_to "Le club" %></p>
+      <p class="links px-3"><%= link_to "Le club", club_path %></p>
       <p class="links px-3"><%= link_to "Les joueurs" %></p>
       <p class="links px-3"><%= link_to "Contact" %></p>
       <p class="links px-3"><%= link_to "forum" %></p>

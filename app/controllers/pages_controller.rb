@@ -10,5 +10,9 @@ class PagesController < ApplicationController
       @articles = Article.search_global(params[:query])
     end
   end
+
+  def club
+
+  end
 end
 
