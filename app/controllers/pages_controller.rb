@@ -3,7 +3,6 @@ class PagesController < ApplicationController
   skip_after_action :verify_authorized
 
   def home
-    # @articles = Article.all.order(:created_at)
     @articles = policy_scope(Article).order(created_at: :desc)
     @article = Article.new
     if params[:query].present?
@@ -30,7 +29,9 @@ class PagesController < ApplicationController
   end
 
   def contact
-    @contact = Contact.new
+    # @contact = Contact.new
+    # @article = Article.new
+    # @isabelle = Location.find_by name:"Chez Isabelle"
   end
 
 end
