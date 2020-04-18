@@ -8,6 +8,6 @@ class UserMailer < ApplicationMailer
   def contact_message(contact)
     @contact = contact
 
-    mail to: "hochet.ludovic@gmail.com", subject: "Nouveau message de bbgc.com"
+    mail to: "bbackgammonclub@gmail.com", subject: "Nouveau message de bbgc.com"
   end
 end
