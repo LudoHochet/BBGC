@@ -11,7 +11,6 @@ class PagesController < ApplicationController
   end
 
   def club
-    @contact = Contact.new
     @locations = Location.geocoded # returns locations with coordinates
     # get the coordonates for the location "Chez Isabelle"
     @isabelle = Location.find_by name:"Chez Isabelle"
@@ -30,6 +29,7 @@ class PagesController < ApplicationController
   end
 
   def contact
+    @contact = Contact.new
   end
 
 end

@@ -3,6 +3,7 @@ skip_before_action :authenticate_user!, only: :create
 
   def create
     @contact = Contact.new(contact_params)
+    authorize @contact
     if @contact.save
       UserMailer.contact_message(@contact).deliver
       flash.notice = "Merci pour votre message, je reviens vers vous rapidement."
