@@ -29,9 +29,7 @@ class PagesController < ApplicationController
   end
 
   def contact
-    # @contact = Contact.new
-    # @article = Article.new
-    # @isabelle = Location.find_by name:"Chez Isabelle"
+    @contact = Contact.new
   end
 
 end
