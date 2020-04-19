@@ -32,5 +32,8 @@ class PagesController < ApplicationController
     @contact = Contact.new
   end
 
+  def joueurs
+
+  end
 end
 
