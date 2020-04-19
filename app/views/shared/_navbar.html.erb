@@ -12,7 +12,7 @@
       <% if current_page?(club_path) %>
         <p class="px-3"><%= link_to "Le club", club_path, class:"links activelinks" %></p>
       <% else %>
-        <p class="px-3"><%= link_to "Le club", club_path, class:"links" %></p>
+        <p class="px-3 underline-from-center"><%= link_to "Le club", club_path, class:"links" %></p>
       <% end %>
       <% if current_page?(joueurs_path) %>
         <p class="px-3"><%= link_to "Les joueurs", joueurs_path, class:"links activelinks" %></p>
