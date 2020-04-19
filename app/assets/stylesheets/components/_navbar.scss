@@ -22,11 +22,11 @@
  margin-left: 1rem;
 }
 
-.links a {
+.links {
   color: black;
   &:hover {
     text-decoration: none;
-    // font-weight:bolder;
+    color: black;
     border-bottom: 3px solid black;
     padding-bottom: 3px;
   }
@@ -39,3 +39,11 @@
     color:black;
   }
 }
+
+.activelinks {
+  // text-decoration: none;
+  border-bottom: 3px solid black;
+  padding-bottom: 3px;
+}
+
+

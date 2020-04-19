@@ -9,9 +9,21 @@
       <% if user_signed_in? && policy(@article).create? %>
         <p><%= link_to "nouvel article", new_article_path, class:"btn-black-border" %></p>
       <% end %>
-      <p class="links px-3"><%= link_to "Le club", club_path %></p>
-      <p class="links px-3"><%= link_to "Les joueurs", joueurs_path %></p>
-      <p class="links px-3"><%= link_to "Contact", contact_path %></p>
+      <% if current_page?(club_path) %>
+        <p class="px-3"><%= link_to "Le club", club_path, class:"links activelinks" %></p>
+      <% else %>
+        <p class="px-3"><%= link_to "Le club", club_path, class:"links" %></p>
+      <% end %>
+      <% if current_page?(joueurs_path) %>
+        <p class="px-3"><%= link_to "Les joueurs", joueurs_path, class:"links activelinks" %></p>
+      <% else %>
+        <p class="px-3"><%= link_to "Les joueurs", joueurs_path, class:"links" %></p>
+      <% end %>
+      <% if current_page?(contact_path) %>
+        <p class="px-3"><%= link_to "Contact", contact_path, class:"links activelinks" %></p>
+      <% else %>
+        <p class="px-3"><%= link_to "Contact", contact_path, class:"links" %></p>
+      <% end %>
       <!-- lien pour le futur forum -->
       <!-- <p class="links px-3"><%#= link_to "forum" %></p> -->
       <div class="icon-session">
