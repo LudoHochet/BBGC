@@ -17,7 +17,8 @@ const initMapbox = () => {
 
     const map = new mapboxgl.Map({
       container: 'map',
-      style: 'mapbox://styles/mapbox/streets-v10'
+      style: 'mapbox://styles/ludohochet/ck9701x6917o71io3y3d9x7is'
+      // style: 'mapbox://styles/mapbox/streets-v10'
     });
     map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken, mapboxgl: mapboxgl }));
     map.addControl(new mapboxgl.NavigationControl());

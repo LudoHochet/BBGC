@@ -43,9 +43,18 @@
 }
 
 .activelinks {
-  // text-decoration: none;
-  border-bottom: 3px solid black;
-  padding-bottom: 3px;
+  -webkit-transform: translateZ(0);
+  position: relative;
+   &:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    bottom: 0;
+    background: black;
+    height: 4px;
+    left: 0;
+    right: 0;
+  }
 }
 
 
