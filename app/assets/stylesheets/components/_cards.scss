@@ -75,10 +75,10 @@
 
 .card-players {
   box-shadow: 0 0 10px rgba(0,0,0,0.2);
-  padding-top: 10px;
-  padding-bottom: 30px;
+  padding-top: 30px;
+  padding-bottom: 50px;
   margin-bottom: 20px;
-  background: linear-gradient(-250deg, #E67E22 20%, transparent 20%);
+  background: linear-gradient(-250deg, $orange 20%, white 20%, white 80%, black 20%)
 }
 
 .players-illustration {
@@ -106,5 +106,5 @@
 
 .classement {
   font-weight: lighter;
-  font-weight: 15px;
+  font-size: 14px;
 }
