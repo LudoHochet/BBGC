@@ -1,29 +1,29 @@
 const revealIsabelle = () => {
   const isabelle = document.getElementById('isabelle');
-  const cardAvec = document.querySelector('#card-avec');
+  const cardRoof = document.querySelector('#card-roof');
   if (isabelle) {
     const cardIsabelle = document.querySelector('#card-isabelle');
     isabelle.addEventListener('click', () => {
-      cardAvec.classList.remove('show');
+      cardRoof.classList.remove('show');
       cardIsabelle.classList.toggle('show');
     })
   }
 };
 
-const revealAvec = () => {
-  const avec = document.getElementById('avec');
+const revealRoof = () => {
+  const roof = document.getElementById('roof');
   const cardIsabelle = document.querySelector('#card-isabelle');
-  if (avec) {
-    const cardAvec = document.querySelector('#card-avec');
-    avec.addEventListener('click', ()=>{
+  if (roof) {
+    const cardRoof = document.querySelector('#card-roof');
+    roof.addEventListener('click', ()=>{
       cardIsabelle.classList.remove('show');
-      cardAvec.classList.add('show');
+      cardRoof.classList.toggle('show');
     })
   }
 };
 
 export { revealIsabelle };
-export { revealAvec };
+export { revealRoof };
 
 
 

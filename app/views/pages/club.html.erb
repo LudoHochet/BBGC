@@ -1,19 +1,33 @@
 <div class="container">
-  <div class="row align-items-center">
-    <div class="col-sm-12 col-md-7">Club fondé en 2015 par Gérard Hochet
-      <p>Venez nous retrouver pour jouer <span id="isabelle" data-markers="<%= @isa_markers.to_json %>">chez Isabelle </span>ou au bar <span id="avec" data-markers="<%= @avec_markers.to_json %>">"Avec"</span>
+  <div class="row align-items-center club-card">
+    <div class="col-sm-12 col-md-7 club-description">
+      <p class="president">Président : Gérard HOCHET</p>
+      <p>Le Brocéliande BackGammon Club est né en octobre 2014.</p>
+      <p>Cette association a pour objet de promouvoir la pratique et le développement du Backgammon au niveau local et régional</p>
+      <ul>
+        <li>Organisation de rencontres</li>
+        <li>Participation aux championnats Nationaux et Internationaux</li>
+        <li>Un des objectifs complémentaires est de favoriser le développement du jeu notamment auprès des plus jeunes</li>
+      </ul>
+      <p>Les rendez-vous du club :</p>
+      <ul>
+        <li>Rendez-vous hebdomadaires <span id="isabelle" data-markers="<%= @isa_markers.to_json %>">chez Isabelle </span> les mardi de 12h00 à 15h00</li>
+        <li>Rendez vous les 1 er et 3 eme jeudi soir de chaque mois au <span id="roof" data-markers="<%= @roof_markers.to_json %>">ROOF </span> à rennes (hotel dieu)</li>
+        <li>Promotion du BackGammon les jeudis après-midi à l‘école du Sacré-Cœur d’Iffendic auprès des classes de CM1 et CM2</li>
+      </ul>
+      <!-- <p>Venez nous retrouver pour jouer <span id="isabelle" data-markers="<%= @isa_markers.to_json %>">chez Isabelle </span>ou au bar <span id="avec" data-markers="<%= @avec_markers.to_json %>">"Avec"</span> -->
         <div class="card-product zoomIn" id="card-isabelle">
           <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
           <div class="card-product-infos">
             <h2>Chez Isabelle</h2>
-            <p>Product description with <strong>relevant info</strong> only.</p>
+            <p>32 Avenue de la libération - Plélan le Grand</p>
           </div>
         </div>
-        <div class="card-product zoomIn" id="card-avec">
+        <div class="card-product zoomIn" id="card-roof">
           <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
           <div class="card-product-infos">
-            <h2>Avec</h2>
-            <p>Product description with <strong>relevant info</strong> only.</p>
+            <h2>The Roof</h2>
+            <p>2 rue de l'Hôtel Dieu - Rennes</p>
           </div>
         </div>
     </div>

@@ -15,9 +15,9 @@ class PagesController < ApplicationController
     # get the coordonates for the location "Chez Isabelle"
     @isabelle = Location.find_by name:"Chez Isabelle"
     @isa_markers = [{lat: @isabelle.latitude, lng: @isabelle.longitude}]
-    # get the coordonates for the location "Avec"
-    @avec = Location.find_by name:"Avec"
-    @avec_markers = [{lat: @avec.latitude, lng: @avec.longitude}]
+    # get the coordonates for the location "The Roof"
+    @roof = Location.find_by name:"The Roof"
+    @roof_markers = [{lat: @roof.latitude, lng: @roof.longitude}]
 
     @markers = @locations.map do |location|
       {
