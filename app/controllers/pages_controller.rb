@@ -3,10 +3,11 @@ class PagesController < ApplicationController
   skip_after_action :verify_authorized
 
   def home
-    @articles = policy_scope(Article).order(created_at: :desc)
     @article = Article.new
     if params[:query].present?
       @articles = Article.search_global(params[:query])
+    else
+      @articles = policy_scope(Article).order(created_at: :desc)
     end
   end
 
