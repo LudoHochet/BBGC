@@ -5,13 +5,17 @@
       <i class="fas fa-trash tool-bar-item"></i>
     </div>
     <div class="photo-first-article ">
-      <div data-toggle="modal" data-target="#bbgcModal">
-        <%= cl_image_tag @article.photos.first.key %>
-      </div>
+      <% if @article.photos.first %>
+        <div data-toggle="modal" data-target="#bbgcModal">
+          <%= cl_image_tag @article.photos.first.key %>
+        </div>
+      <% else %>
+        <%= image_tag 'https://cdn.pixabay.com/photo/2019/02/25/11/39/backgammon-board-4019437__340.jpg' %>
+      <% end %>
 
       <!-- Modal -->
       <div class="modal fade" id="bbgcModal" tabindex="-1" role="dialog" aria-labelledby="bbgcModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-dialog modal-lg" role="document">
           <div class="modal-content">
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -19,25 +23,26 @@
               </button>
             </div>
             <div class="modal-body">
-
-              <div id="preview-carousel" class="carousel slide" data-ride="carousel">
-                <div class="carousel-inner">
-                  <div class="carousel-item active">
-                    <%= cl_image_tag @article.photos.first.key, class: "d-block w-100" %>
-                  </div>
-                  <% @article.photos.drop(1).each do |photo| %>
-                    <div class="carousel-item">
-                      <%= cl_image_tag photo.key, class: "d-block"%>
+              <% if @article.photos.attached? %>
+                <div id="preview-carousel" class="carousel slide" data-ride="carousel">
+                  <div class="carousel-inner">
+                    <div class="carousel-item active">
+                      <%= cl_image_tag @article.photos.first.key, class: "d-block w-100" %>
                     </div>
-                  <% end %>
+                    <% @article.photos.drop(1).each do |photo| %>
+                      <div class="carousel-item">
+                        <%= cl_image_tag photo.key, class: "d-block"%>
+                      </div>
+                    <% end %>
+                  </div>
+                  <a class="carousel-control-prev" href="#preview-carousel" role="button" data-slide="prev">
+                    <span class="previous-next"><i class="fas fa-angle-left"></i></span>
+                  </a>
+                  <a class="carousel-control-next" href="#preview-carousel" role="button" data-slide="next">
+                    <span class="previous-next"><i class="fas fa-angle-right"></i></span>
+                  </a>
                 </div>
-                <a class="carousel-control-prev" href="#preview-carousel" role="button" data-slide="prev">
-                  <span class="previous-next"><i class="fas fa-angle-left"></i></span>
-                </a>
-                <a class="carousel-control-next" href="#preview-carousel" role="button" data-slide="next">
-                  <span class="previous-next"><i class="fas fa-angle-right"></i></span>
-                </a>
-              </div>
+              <% end %>
             </div>
           </div>
         </div>
