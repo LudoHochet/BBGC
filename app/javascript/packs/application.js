@@ -26,6 +26,8 @@ require("channels")
 import "bootstrap";
 import { initMapbox } from '../plugins/init_mapbox';
 import { initAutocomplete } from '../plugins/init_autocomplete';
+import { revealIsabelle } from '../components/reveal_cards';
+import { revealAvec } from '../components/reveal_cards';
 
 
 // Internal imports, e.g:
@@ -36,4 +38,6 @@ document.addEventListener('turbolinks:load', () => {
   // initSelect2();
   initMapbox();
   initAutocomplete();
+  revealIsabelle();
+  revealAvec();
 });
