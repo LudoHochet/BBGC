@@ -72,3 +72,37 @@
     color: white;
   }
 }
+
+.card-players {
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  padding-top: 10px;
+  padding-bottom: 30px;
+}
+
+.players-illustration {
+  background-color: black;
+  color: white;
+  border-radius: 50%;
+  height: 80px;
+  width: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.players-illustration h6 {
+  margin-bottom: 0;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.name {
+  color: $orange;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 25px;
+}
+
+.classement {
+  font-weight: lighter;
+  font-weight: 15px;
+}
