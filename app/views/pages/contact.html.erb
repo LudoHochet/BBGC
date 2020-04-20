@@ -1,13 +1,12 @@
 
-
-<div class="container" id="">
+<div class="container" id="contact-form">
     <h2 class="">Contactez-nous</h2>
     <div class="contact-form">
       <%= simple_form_for @contact  do |f| %>
         <div class="row">
           <div class="col-xs-12 col-sm-6">
             <div class="form-group">
-              <%= f.text_field :name, placeholder: "name", class: "form-control"%>
+              <%= f.text_field :name, placeholder: "Nom", class: "form-control"%>
             </div>
           </div>
           <div class="col-xs-12 col-sm-6">
@@ -20,7 +19,7 @@
           <%= f.text_area :message, placeholder: "message", class: "form-control" %>
         </div>
         <div class="">
-          <%= f.submit "SEND" %>
+          <%= f.submit "Envoyer", class:"btn-black-border" %>
         </div>
       <% end %>
     </div>

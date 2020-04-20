@@ -2,6 +2,7 @@
   background-color: white;
   padding-top: 10px;
   padding-bottom: 10px;
+  border-bottom: 2px solid #E67E22;
 }
 
 .navbar-bbgc img {
@@ -51,7 +52,7 @@
     z-index: -1;
     bottom: 0;
     background: black;
-    height: 4px;
+    height: 2px;
     left: 0;
     right: 0;
   }
@@ -74,7 +75,7 @@
     right: 50%;
     bottom: 0;
     background: black;
-    height: 4px;
+    height: 2px;
     -webkit-transition-property: left right;
     transition-property: left right;
     -webkit-transition-duration: 0.3s;
