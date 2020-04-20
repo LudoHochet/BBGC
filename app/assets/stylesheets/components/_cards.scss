@@ -4,15 +4,11 @@
   margin-top: 5rem;
   padding: 2px;
   box-shadow: 0 0 10px rgba(0,0,0,0.2);
-  // border: 4px solid white;
+  border: 2px solid white;
   &:hover {
-    border: 1px solid #E67E22;
+    border: 2px solid #E67E22;
   }
 }
-
-// .hover-card {
-//   border: 1px solid #E67E22;
-// }
 
 #category {
   position: absolute;
@@ -20,6 +16,7 @@
   padding: 2px 5px;
   left: 10px;
   top: -18px;
+  z-index: +100;
 }
 
 .card-article img {
