@@ -28,6 +28,7 @@ import { initMapbox } from '../plugins/init_mapbox';
 import { initAutocomplete } from '../plugins/init_autocomplete';
 import { revealIsabelle } from '../components/reveal_cards';
 import { revealRoof } from '../components/reveal_cards';
+// import { overCards } from '../components/over_article_cards';
 
 
 // Internal imports, e.g:
@@ -40,4 +41,5 @@ document.addEventListener('turbolinks:load', () => {
   initAutocomplete();
   revealIsabelle();
   revealRoof();
+  // overCards();
 });
