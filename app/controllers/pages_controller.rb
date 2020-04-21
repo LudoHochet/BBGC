@@ -12,6 +12,7 @@ class PagesController < ApplicationController
   end
 
   def club
+    @article = Article.new
     @locations = Location.geocoded # returns locations with coordinates
     # get the coordonates for the location "Chez Isabelle"
     @isabelle = Location.find_by name:"Chez Isabelle"
@@ -30,11 +31,12 @@ class PagesController < ApplicationController
   end
 
   def contact
+    @article = Article.new
     @contact = Contact.new
   end
 
   def joueurs
-
+    @article = Article.new
   end
 end
 
