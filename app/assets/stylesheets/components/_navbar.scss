@@ -15,11 +15,10 @@
 
 .navbar-bbgc p {
   font-weight: lighter;
+  margin-bottom: 0;
 }
 
 .icon-session {
- opacity: 0.8;
- padding-bottom: 1rem;
  margin-left: 1rem;
 }
 
@@ -30,8 +29,6 @@
   &:hover {
     text-decoration: none;
     color: black;
-    // border-bottom: 3px solid black;
-    // padding-bottom: 3px;
   }
 }
 
@@ -88,5 +85,18 @@
     right: 0;
     text-decoration: none;
   }
+}
+
+.add-links {
+  display: none;
+}
+
+@media (max-width: 575px) {
+  .links {
+    display:none;
+  }
+  .navbar-bbgc img {
+  width: 80px;
+}
 }
 
