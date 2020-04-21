@@ -27,6 +27,16 @@
   font-size: 72px;
   font-weight: bold;
   padding: 4px 0px;
+  position: initial;
+}
+.citation-all {
+  color: white;
+  position: absolute;
+  text-align: justify;
+  // border: 3px solid red;
+  margin-right: 15px;
+  left: 100px;
+  top: 25px;
 }
 
 #quote {
@@ -34,23 +44,102 @@
   font-size: 72px;
   position: absolute;
   top: -50px;
-  //
   left: 100px;
 }
 
 #citation {
-  color: white;
-  position: absolute;
   font-size: 1.5rem;
-  left: 100px;
-  top: 25px;
 }
 
 #author {
-  color:white;
-  position: absolute;
-  left: 100px;
-  top: 60px;
-/* font-size: 1rem; */
+  font-size: 1rem;
   font-weight: lighter;
+  text-align: right;
 }
+
+
+@media (max-width: 1200px) {
+  .banner h1 {
+    font-size: 64px;
+  }
+  #citation {
+    font-size: 20px;
+  }
+  #author {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 992px) {
+  .banner h1 {
+    font-size: 55px;
+  }
+  #citation {
+    font-size: 16px;
+  }
+  #author {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 766px) {
+  .banner h1 {
+    font-size: 48px;
+    position: absolute;
+    top: -60px;
+    margin-left: 15px;
+  }
+  .citation-all {
+    top: 300px;
+  }
+  #quote {
+    top: 220px;
+  }
+}
+
+@media (max-width: 576px) {
+  .citation-all {
+    left: 60px;
+  }
+  #quote {
+    left: 60px;
+  }
+}
+
+@media (max-width: 396px) {
+  .banner h1 {
+    font-size: 38px;
+    top: -48px;
+  }
+  #citation {
+    font-size: 15px;
+  }
+  #author {
+    font-size: 11px;
+  }
+  #quote {
+    font-size: 60px;
+  }
+}
+
+@media (max-width: 360px) {
+  .banner h1 {
+    font-size: 32px;
+  }
+  #citation {
+    font-size: 14px;
+  }
+  #author {
+    font-size: 10px;
+  }
+  #quote {
+    font-size: 55px;
+  }
+
+}
+
+
+
+
+
+
