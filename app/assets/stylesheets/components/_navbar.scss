@@ -87,16 +87,35 @@
   }
 }
 
-.add-links {
+.hidden-links {
   display: none;
 }
 
-@media (max-width: 575px) {
-  .links {
-    display:none;
+.hidden-new-article {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .new-article {
+    display: none;
+  }
+  .hidden-new-article {
+    display: block;
   }
   .navbar-bbgc img {
-  width: 80px;
+    width: 80px;
+  }
 }
+
+@media (max-width: 576px) {
+  .links {
+    display: none;
+  }
+  .hidden-links{
+    display: block;
+  }
+  .navbar-bbgc img {
+    width: 60px;
+  }
 }
 
