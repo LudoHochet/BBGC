@@ -1,10 +1,12 @@
 <div class="show-article row">
   <div class="article col-sm-12 col-md-8">
     <!-- tool bar -->
-    <div class="d-flex flex-column tool-bar">
-      <i class="fas fa-edit tool-bar-item"></i>
-      <i class="fas fa-trash tool-bar-item"></i>
-    </div>
+    <% if user_signed_in? && policy(@article).update? %>
+      <div class="d-flex flex-column tool-bar">
+        <i class="fas fa-edit tool-bar-item"></i>
+        <i class="fas fa-trash tool-bar-item"></i>
+      </div>
+    <% end %>
     <!-- 1ère photo pour illustration de l'article -->
     <div class="photo-first-article ">
       <% if @article.photos.first %>
