@@ -47,8 +47,9 @@
           <%= link_to article_path(article) do %>
             <h3 class="card-artcile-title"><%= article.title %></h3>
           <% end %>
-          <p class="card-content"><%= article.content.split.first(20).join(" ") %>...</p>
-
+          <%= link_to article_path(article) do %>
+            <p class="card-content"><%= article.content.split.first(20).join(" ") %>...</p>
+          <% end %>
           <% if user_signed_in? && policy(article).update? %>
             <%= link_to edit_article_path(article) do %>
               <i class="fas fa-edit" id="card-edit"></i>
