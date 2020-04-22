@@ -1,9 +1,11 @@
 <div class="show-article row">
   <div class="article col-sm-12 col-md-8">
+    <!-- tool bar -->
     <div class="d-flex flex-column tool-bar">
       <i class="fas fa-edit tool-bar-item"></i>
       <i class="fas fa-trash tool-bar-item"></i>
     </div>
+    <!-- 1ère photo pour illustration de l'article -->
     <div class="photo-first-article ">
       <% if @article.photos.first %>
         <div data-toggle="modal" data-target="#bbgcModal">
@@ -50,9 +52,13 @@
       <!-- fin de la Modal -->
     </div>
 
+    <!-- contenu de l'article -->
     <div class="article-content">
       <h1><%= @article.title %></h1>
       <%= simple_format(@article.content) %>
+      <div class="end">
+        <%= link_to "retour à l'accueil", root_path, class:"back" %>
+      </div>
     </div>
   </div>
 </div>
