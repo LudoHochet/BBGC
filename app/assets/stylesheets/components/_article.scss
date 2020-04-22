@@ -53,26 +53,66 @@
   font-size: 55px;
 }
 
-.tool-bar {
+.tool-bar-left {
   position: fixed;
   left: 30px;
   top: 50%;
 }
 
-.tool-bar-item {
+.tool-bar-left-item {
   padding: 10px;
+  font-size: 2rem;
+  color: black;
+  opacity: 0.7;
+  &:hover {
+    opacity: 1;
+  }
 }
+
 .end {
+  margin-top: 30px;
   text-align: right;
 }
 
 .back {
   color: black;
-  // font-weight: bolder;
   opacity: 0.7;
   &:hover {
     color: black;
     text-decoration: none;
     opacity: 1;
+  }
+}
+
+.tool-bar-hidden-item {
+  display: none;
+  color: black;
+  font-size: 1.5rem;
+  opacity: 0.7;
+  &:hover {
+    opacity: 1;
+  }
+}
+
+#trash {
+  margin-left: 30px;
+}
+
+@media (max-width: 992px) {
+  .tool-bar-left-item {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .tool-bar-left-item {
+    display: none;
+  }
+  .tool-bar-hidden-item {
+    display: block;
+  }
+  .show-article {
+    margin-left: 10px;
+    margin-right: 10px;
   }
 }

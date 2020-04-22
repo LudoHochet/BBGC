@@ -20,6 +20,11 @@
 
 .icon-session {
  margin-left: 1rem;
+ opacity: 0.7;
+ &:hover {
+  cursor: pointer;
+  opacity: 1;
+ }
 }
 
 .links {

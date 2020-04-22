@@ -2,9 +2,13 @@
   <div class="article col-sm-12 col-md-8">
     <!-- tool bar -->
     <% if user_signed_in? && policy(@article).update? %>
-      <div class="d-flex flex-column tool-bar">
-        <i class="fas fa-edit tool-bar-item"></i>
-        <i class="fas fa-trash tool-bar-item"></i>
+      <div class="d-flex flex-column tool-bar-left">
+        <%= link_to edit_article_path(@article) do %>
+          <i class="fas fa-edit tool-bar-left-item"></i>
+        <% end %>
+        <%= link_to article_path(@article), method: :delete, data: {confirm: "Certain de vouloir supprimer cet article?"} do %>
+          <i class="fas fa-trash tool-bar-left-item"></i>
+        <% end %>
       </div>
     <% end %>
     <!-- 1ère photo pour illustration de l'article -->
@@ -58,9 +62,24 @@
     <div class="article-content">
       <h1><%= @article.title %></h1>
       <%= simple_format(@article.content) %>
-      <div class="end">
-        <%= link_to "retour à l'accueil", root_path, class:"back" %>
-      </div>
+        <!-- si user = admin -->
+        <% if user_signed_in? && policy(@article).update? %>
+          <div class="end d-flex align-items-center justify-content-between">
+            <div class="d-flex align-items-center">
+              <%= link_to edit_article_path(@article) do %>
+                <i class="fas fa-edit tool-bar-hidden-item"></i>
+              <% end %>
+              <%= link_to article_path(@article), method: :delete, data: {confirm: "Certain de vouloir supprimer cet article?"} do %>
+                <i class="fas fa-trash tool-bar-hidden-item" id="trash"></i>
+              <% end %>
+            </div>
+            <%= link_to "retour à l'accueil", root_path, class:"back" %>
+          </div>
+        <% else %>
+          <div class="end">
+            <%= link_to "retour à l'accueil", root_path, class:"back" %>
+          </div>
+        <% end %>
     </div>
   </div>
 </div>
