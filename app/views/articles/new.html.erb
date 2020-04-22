@@ -1,11 +1,25 @@
-<h5>création d'un nouvel article</h5>
+<div class="container article-form">
+  <h2>Nouvel article</h2>
 
-<%= simple_form_for @article do |f| %>
-  <%= f.input :title %>
-  <%= f.input :category, collection: Article::CATEGORY %>
-  <%= f.input :content %>
-  <%#= f.input :photo, as: :file %>
-  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-  <%= f.submit %>
-<% end %>
+  <%= simple_form_for @article do |f| %>
+    <div class="row">
+      <div class="col-xs-12 col-sm-6">
+        <div class="form-group">
+          <%= f.input :title, class:"form-control"%>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6">
+        <div class="form-group">
+          <%= f.input :category, collection: Article::CATEGORY, class:"form-control"%>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.text_area :content, class:"form-control" %>
+    </div>
+    <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+    <%= f.submit "valider", class:"btn-black" %>
+  <% end %>
+</div>
+
 

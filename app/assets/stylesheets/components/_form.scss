@@ -18,3 +18,30 @@
 .reset {
   font-size: 14px;
 }
+
+
+#contact-form {
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+#contact-form h2 {
+  margin-bottom: 1.5rem;
+}
+
+textarea.form-control {
+  height: 150px;
+}
+
+
+.article-form {
+  padding-top: 80px;
+  padding-bottom: 80px;
+  & textarea.form-control {
+  height: 350px;
+  }
+}
+
+.article-form h2 {
+  margin-bottom: 1.5rem;
+}
+
