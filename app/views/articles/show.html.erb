@@ -83,7 +83,7 @@
       <!-- display des reviews -->
       <% if @article.reviews.any? %>
         <% @article.reviews.each do |review| %>
-          <p><%= review.user.first_name.capitalize %> <%= review.user.last_name.capitalize %> le <%= review.created_at.strftime("%m-%e-%y %H:%M") %></p>
+          <p><%= review.user.first_name.capitalize %> <%= review.user.last_name.capitalize %> le <%= review.created_at.strftime("%d.%m.%y") %> à <%= review.created_at.strftime("%H:%M") %></p>
           <p><%= review.content %></p>
           <!-- strftime("%m/%d/%Y") -->
         <% end %>
@@ -91,7 +91,9 @@
 
       <!-- form pour création des reviews -->
       <%= simple_form_for([@article, @review], remote: true) do |f|%>
+        <%#= label_tag "votre commentaire" %>
         <%= f.input :content %>
+        <%= label_tag(:content, "I own a dog") %>
         <%= f.submit %>
       <% end %>
       <!-- ---- -->
