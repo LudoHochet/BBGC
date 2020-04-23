@@ -83,13 +83,14 @@
       <!-- display des reviews -->
       <% if @article.reviews.any? %>
         <% @article.reviews.each do |review| %>
-          <p><%= review.user.first_name.capitalize %> <%= review.user.last.name.capitalize %></p>
+          <p><%= review.user.first_name.capitalize %> <%= review.user.last_name.capitalize %> le <%= review.created_at.strftime("%m-%e-%y %H:%M") %></p>
           <p><%= review.content %></p>
+          <!-- strftime("%m/%d/%Y") -->
         <% end %>
       <% end %>
 
       <!-- form pour création des reviews -->
-      <%= simple_form_for [@article, @review] do |f|%>
+      <%= simple_form_for([@article, @review], remote: true) do |f|%>
         <%= f.input :content %>
         <%= f.submit %>
       <% end %>
