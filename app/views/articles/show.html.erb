@@ -80,7 +80,11 @@
             <%= link_to "retour à l'accueil", root_path, class:"back" %>
           </div>
         <% end %>
-    </div>
+      <%= simple_form_for [@article, @review] do |f|%>
+        <%= f.input :content %>
+        <%= f.submit %>
+      <% end %>
+    </div> <!-- fin de l'article -->
   </div>
 </div>
 
