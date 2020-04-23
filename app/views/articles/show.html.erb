@@ -63,27 +63,37 @@
       <h1><%= @article.title %></h1>
       <%= simple_format(@article.content) %>
         <!-- si user = admin -->
-        <% if user_signed_in? && policy(@article).update? %>
-          <div class="end d-flex align-items-center justify-content-between">
-            <div class="d-flex align-items-center">
-              <%= link_to edit_article_path(@article) do %>
-                <i class="fas fa-edit tool-bar-hidden-item"></i>
-              <% end %>
-              <%= link_to article_path(@article), method: :delete, data: {confirm: "Certain de vouloir supprimer cet article?"} do %>
-                <i class="fas fa-trash tool-bar-hidden-item" id="trash"></i>
-              <% end %>
-            </div>
-            <%= link_to "retour à l'accueil", root_path, class:"back" %>
+      <% if user_signed_in? && policy(@article).update? %>
+        <div class="end d-flex align-items-center justify-content-between">
+          <div class="d-flex align-items-center">
+            <%= link_to edit_article_path(@article) do %>
+              <i class="fas fa-edit tool-bar-hidden-item"></i>
+            <% end %>
+            <%= link_to article_path(@article), method: :delete, data: {confirm: "Certain de vouloir supprimer cet article?"} do %>
+              <i class="fas fa-trash tool-bar-hidden-item" id="trash"></i>
+            <% end %>
           </div>
-        <% else %>
-          <div class="end">
-            <%= link_to "retour à l'accueil", root_path, class:"back" %>
-          </div>
+          <%= link_to "retour à l'accueil", root_path, class:"back" %>
+        </div>
+      <% else %>
+        <div class="end">
+          <%= link_to "retour à l'accueil", root_path, class:"back" %>
+        </div>
+      <% end %>
+      <!-- display des reviews -->
+      <% if @article.reviews.any? %>
+        <% @article.reviews.each do |review| %>
+          <p><%= review.user.email %></p>
+          <p><%= review.content %></p>
         <% end %>
+      <% end %>
+
+      <!-- form pour création des reviews -->
       <%= simple_form_for [@article, @review] do |f|%>
         <%= f.input :content %>
         <%= f.submit %>
       <% end %>
+      <!-- ---- -->
     </div> <!-- fin de l'article -->
   </div>
 </div>
