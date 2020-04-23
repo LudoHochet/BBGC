@@ -83,7 +83,7 @@
       <!-- display des reviews -->
       <% if @article.reviews.any? %>
         <% @article.reviews.each do |review| %>
-          <p><%= review.user.email %></p>
+          <p><%= review.user.first_name.capitalize %> <%= review.user.last.name.capitalize %></p>
           <p><%= review.content %></p>
         <% end %>
       <% end %>
