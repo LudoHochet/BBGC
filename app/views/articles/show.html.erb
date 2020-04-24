@@ -91,10 +91,8 @@
 
       <!-- form pour création des reviews -->
       <%= simple_form_for([@article, @review], remote: true) do |f|%>
-        <%#= label_tag "votre commentaire" %>
-        <%= f.input :content %>
-        <%= label_tag(:content, "I own a dog") %>
-        <%= f.submit %>
+        <%= f.input :content, label: "votre commentaire", required: false, autofocus: true %>
+        <%= f.submit "valider", class:"btn-black" %>
       <% end %>
       <!-- ---- -->
     </div> <!-- fin de l'article -->
