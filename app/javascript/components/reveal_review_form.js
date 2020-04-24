@@ -1,5 +1,5 @@
 const revealReviewForm = () => {
-  const btnNewReview = document.querySelector('.btn-new-review');
+  const btnNewReview = document.getElementById('add-review');
   if (btnNewReview) {
     btnNewReview.addEventListener('click', () => {
       console.log("test");

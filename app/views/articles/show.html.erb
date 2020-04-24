@@ -93,12 +93,16 @@
             </div>
           <% end %>
         <% end %>
-        <p class="btn-black btn-new-review">Ajouter un commentaire</p>
+        <% if user_signed_in? %>
+          <p class="btn-black btn-new-review" id="add-review">Ajouter un commentaire</p>
+        <% else %>
+          <%= link_to "Ajouter un commentaire", new_user_session_path, class:"btn-black btn-new-review" %>
+        <% end %>
         <!-- form pour création des reviews -->
         <div class="review-form">
-          <%= simple_form_for [@article, @review] do |f|%>
-            <%= f.input :content, label: "votre commentaire", required: false, autofocus: true, placeholder: "vous devez être connecté pour laisser un commentaire" %>
-            <%= f.submit "valider", class:"btn-black" %>
+            <%= simple_form_for [@article, @review] do |f|%>
+              <%= f.input :content, label: "votre commentaire", required: false, autofocus: true %>
+              <%= f.submit "valider", class:"btn-black" %>
           <% end %>
         </div>
       </div>
