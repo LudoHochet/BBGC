@@ -45,3 +45,14 @@ textarea.form-control {
   margin-bottom: 1.5rem;
 }
 
+textarea#review_content {
+  font-size: 12px;
+}
+
+.review-form {
+  display: none;
+}
+
+.visible {
+  display: block;
+}

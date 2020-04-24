@@ -18,7 +18,7 @@
           <%= cl_image_tag @article.photos.first.key, class:"survol" %>
         </div>
       <% else %>
-        <%= image_tag 'https://cdn.pixabay.com/photo/2019/02/25/11/39/backgammon-board-4019437__340.jpg' %>
+        <%= image_tag 'https://cdn.pixabay.com/photo/2019/02/25/11/39/backgammon-board-4019437__340.jpg', class:"survol"%>
       <% end %>
 
       <!-- Modal -->
@@ -63,24 +63,51 @@
       <h1><%= @article.title %></h1>
       <%= simple_format(@article.content) %>
         <!-- si user = admin -->
-        <% if user_signed_in? && policy(@article).update? %>
-          <div class="end d-flex align-items-center justify-content-between">
-            <div class="d-flex align-items-center">
-              <%= link_to edit_article_path(@article) do %>
-                <i class="fas fa-edit tool-bar-hidden-item"></i>
-              <% end %>
-              <%= link_to article_path(@article), method: :delete, data: {confirm: "Certain de vouloir supprimer cet article?"} do %>
-                <i class="fas fa-trash tool-bar-hidden-item" id="trash"></i>
-              <% end %>
+      <% if user_signed_in? && policy(@article).update? %>
+        <div class="end d-flex align-items-center justify-content-between">
+          <div class="d-flex align-items-center">
+            <%= link_to edit_article_path(@article) do %>
+              <i class="fas fa-edit tool-bar-hidden-item"></i>
+            <% end %>
+            <%= link_to article_path(@article), method: :delete, data: {confirm: "Certain de vouloir supprimer cet article?"} do %>
+              <i class="fas fa-trash tool-bar-hidden-item" id="trash"></i>
+            <% end %>
+          </div>
+          <%= link_to "retour à l'accueil", root_path, class:"back" %>
+        </div>
+      <% else %>
+        <div class="end">
+          <%= link_to "retour à l'accueil", root_path, class:"back" %>
+        </div>
+      <% end %>
+
+      <div class="section" id="reviewszone">
+        <p class="review-part">commentaires (<%= @article.reviews.count %>)</p>
+        <!-- display des reviews -->
+        <% if @article.reviews.any? %>
+          <% @article.reviews.each do |review| %>
+            <div class="card-reviews">
+              <p id="name"><%= review.user.first_name.capitalize %> <%= review.user.last_name.capitalize %>
+              <p id="date"><%= review.created_at.strftime("%d.%m.%y") %> à <%= review.created_at.strftime("%H:%M") %></p>
+              <p id=review-content><%= review.content %></p>
             </div>
-            <%= link_to "retour à l'accueil", root_path, class:"back" %>
-          </div>
-        <% else %>
-          <div class="end">
-            <%= link_to "retour à l'accueil", root_path, class:"back" %>
-          </div>
+          <% end %>
         <% end %>
-    </div>
+        <% if user_signed_in? %>
+          <p class="btn-black btn-new-review" id="add-review">Ajouter un commentaire</p>
+        <% else %>
+          <%= link_to "Ajouter un commentaire", new_user_session_path, class:"btn-black btn-new-review" %>
+        <% end %>
+        <!-- form pour création des reviews -->
+        <div class="review-form">
+            <%= simple_form_for [@article, @review] do |f|%>
+              <%= f.input :content, label: "votre commentaire", required: false, autofocus: true %>
+              <%= f.submit "valider", class:"btn-black" %>
+          <% end %>
+        </div>
+      </div>
+      <!-- ---- -->
+    </div> <!-- fin de l'article -->
   </div>
 </div>
 
