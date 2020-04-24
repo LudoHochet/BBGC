@@ -71,6 +71,7 @@
 
 .end {
   margin-top: 30px;
+  margin-bottom: 30px;
   text-align: right;
 }
 
@@ -96,6 +97,13 @@
 
 #trash {
   margin-left: 30px;
+}
+
+.review-part {
+  margin: 30px 0px;
+  background-color: #DDDDDD;
+  padding: 4px 25px;
+  opacity: 0.8;
 }
 
 @media (max-width: 992px) {

@@ -80,20 +80,26 @@
           <%= link_to "retour à l'accueil", root_path, class:"back" %>
         </div>
       <% end %>
+
+      <p class="review-part">commentaires (<%= @article.reviews.count %>)</p>
       <!-- display des reviews -->
       <% if @article.reviews.any? %>
         <% @article.reviews.each do |review| %>
-          <p><%= review.user.first_name.capitalize %> <%= review.user.last_name.capitalize %> le <%= review.created_at.strftime("%d.%m.%y") %> à <%= review.created_at.strftime("%H:%M") %></p>
-          <p><%= review.content %></p>
-          <!-- strftime("%m/%d/%Y") -->
+          <div class="card-reviews">
+            <p id="name"><%= review.user.first_name.capitalize %> <%= review.user.last_name.capitalize %>
+            <p id="date"><%= review.created_at.strftime("%d.%m.%y") %> à <%= review.created_at.strftime("%H:%M") %></p>
+            <p id=review-content><%= review.content %></p>
+          </div>
         <% end %>
       <% end %>
-
+      <p class="btn-black btn-new-review">Ajouter un commentaire</p>
       <!-- form pour création des reviews -->
-      <%= simple_form_for([@article, @review], remote: true) do |f|%>
-        <%= f.input :content, label: "votre commentaire", required: false, autofocus: true %>
-        <%= f.submit "valider", class:"btn-black" %>
-      <% end %>
+      <div class="review-form">
+        <%= simple_form_for [@article, @review] do |f|%>
+          <%= f.input :content, label: "votre commentaire", required: false, autofocus: true, placeholder: "vous devez être connecté pour laisser un commentaire" %>
+          <%= f.submit "valider", class:"btn-black" %>
+        <% end %>
+      </div>
       <!-- ---- -->
     </div> <!-- fin de l'article -->
   </div>
