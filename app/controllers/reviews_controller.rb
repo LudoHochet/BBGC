@@ -6,7 +6,7 @@ class ReviewsController < ApplicationController
     @review.user = current_user
     authorize @review
     if @review.save
-      redirect_to article_path(@article)
+      redirect_to article_path(@article, anchor: 'reviewszone')
     else
       render 'articles/show'
     end
