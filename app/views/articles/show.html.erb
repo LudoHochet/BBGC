@@ -13,10 +13,10 @@
       </div>
     <% end %>
     <!-- 1ère photo pour illustration de l'article -->
-    <div class="photo-first-article ">
+    <!-- <div class="photo-first-article "> -->
       <% if @article.photos.first %>
-        <div data-toggle="modal" data-target="#bbgcModal">
-          <%= cl_image_tag @article.photos.first.key, class:"survol" %>
+        <div class="survol d-flex justify-content-center align-content-stretch" id="photo-link" data-toggle="modal" data-target="#bbgcModal" style="background-image: url('<%= cl_image_path @article.photos.first.key %>');" >
+          <div class="flex-grow-1 d-flex align-items-center justify-content-center" id="modal-link"><span>Voir toutes les photos</span></div>
         </div>
       <% else %>
         <%= image_tag 'https://cdn.pixabay.com/photo/2019/02/25/11/39/backgammon-board-4019437__340.jpg', class:"survol"%>
@@ -57,7 +57,7 @@
         </div>
       </div>
       <!-- fin de la Modal -->
-    </div>
+    <!-- </div> -->
 
     <!-- contenu de l'article -->
     <div class="article-content">
@@ -69,10 +69,16 @@
         <div class="paragraph">
           <% @article.paragraphs.each do |paragraph| %>
             <% if paragraph.photo.attached? %>
-              <%= cl_image_tag paragraph.photo.key %>
+              <div class="d-flex justify-content-center">
+                <%= cl_image_tag paragraph.photo.key %>
+              </div>
             <% end %>
-            <div class="d-flex justify-content-between">
-              <h6><%= paragraph.title %></h6>
+            <div class="d-flex justify-content-between mb-3">
+              <% if paragraph.title.blank? %>
+                <p></p>
+              <% else %>
+                <h6><%= paragraph.title %></h6>
+              <% end %>
               <!-- display tool-bar for paragraph with pundit policy -->
               <% if user_signed_in? && policy(paragraph).update? %>
                 <div class="tool-bar-paragraph">
