@@ -42,7 +42,14 @@
   margin-bottom: 0;
 }
 
-
+.tool-bar-paragraph i {
+  color: black;
+  opacity: 0.7;
+  &:hover {
+    opacity: 1;
+    cursor: pointer;
+  }
+}
 .paragraph h6 {
   display: inline-block;
   font-family: 'Montserrat', sans-serif;
@@ -110,6 +117,7 @@
 .marginleft {
   margin-left: 30px;
 }
+
 
 .review-part {
   margin: 30px 0px;

@@ -62,15 +62,22 @@
     <!-- contenu de l'article -->
     <div class="article-content">
       <h1><%= @article.title %></h1>
-      <!-- contenu de l'article -->
+      <!-- display du contenu de l'article -->
       <%= simple_format(@article.content) %>
+      <!-- display des paragraphes -->
       <% if @article.paragraphs.any? %>
         <div class="paragraph">
           <% @article.paragraphs.each do |paragraph| %>
             <% if paragraph.photo.attached? %>
               <%= cl_image_tag paragraph.photo.key %>
             <% end %>
-            <h6><%= paragraph.title %></h6>
+            <div class="d-flex justify-content-between">
+              <h6><%= paragraph.title %></h6>
+              <div class="tool-bar-paragraph">
+                <i class="fas fa-edit"></i>
+                <i class="fas fa-trash marginleft"></i>
+              </div>
+            </div>
             <%= simple_format(paragraph.content) %>
           <% end %>
         </div>
@@ -97,7 +104,7 @@
       <% end %>
       <!-- fin de la toolbar bas de page -->
 
-      <!-- zone paragraph -->
+      <!-- paragraph-form -->
       <div class="section" id="paragraphszone">
         <div class="paragraph-form">
           <%= simple_form_for [@article, @paragraph] do |f| %>
