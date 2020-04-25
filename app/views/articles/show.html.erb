@@ -79,7 +79,9 @@
                   <%= link_to edit_article_paragraph_path(@article, paragraph) do %>
                     <i class="fas fa-edit"></i>
                   <% end %>
-                  <i class="fas fa-trash marginleft"></i>
+                  <%= link_to article_paragraph_path(@article, paragraph), method: :delete, data: {confirm: "Certain de vouloir supprimer ce paragraphe?"} do %>
+                    <i class="fas fa-trash marginleft"></i>
+                  <% end %>
                 </div>
               <% end %>
             </div>
