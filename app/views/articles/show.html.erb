@@ -110,9 +110,21 @@
       <div class="section" id="paragraphszone">
         <div class="paragraph-form">
           <%= simple_form_for [@article, @paragraph] do |f| %>
-            <%= f.input :photo, as: :file %>
-            <%= f.input :title, label: "sous titre"%>
-            <%= f.input :content, label: "texte" %>
+            <div class="row">
+              <div class="col-xs-12 col-sm-6">
+                <div class="form-group">
+                  <%= f.input :title, label: "sous titre"%>
+                </div>
+              </div>
+              <div class="col-xs-12 col-sm-6">
+                <div class="form-group">
+                  <%= f.input :photo, as: :file, class:"form-control" %>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <%= f.input :content, label: "texte" %>
+            </div>
             <%= f.submit "Ajouter", class:"btn-black"%>
           <% end %>
         </div>

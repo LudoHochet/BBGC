@@ -1,5 +1,5 @@
 class ParagraphsController < ApplicationController
-  before_action :set_paragraph, only: :edit
+  before_action :set_paragraph, only: [ :edit, :update]
 
   def create
     @paragraph = Paragraph.new(paragraphs_params)
@@ -13,6 +13,13 @@ class ParagraphsController < ApplicationController
 
   def edit
     @article = Article.new # for button new article in navbar
+    @article = Article.find(params[:article_id])
+  end
+
+  def update
+    @paragraph.update(paragraphs_params)
+    @article = Article.find(params[:article_id])
+    redirect_to article_path(@article)
   end
 
   private
