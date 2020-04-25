@@ -73,12 +73,15 @@
             <% end %>
             <div class="d-flex justify-content-between">
               <h6><%= paragraph.title %></h6>
-              <div class="tool-bar-paragraph">
-                <%= link_to edit_article_paragraph_path(@article, paragraph) do %>
-                  <i class="fas fa-edit"></i>
-                <% end %>
-                <i class="fas fa-trash marginleft"></i>
-              </div>
+              <!-- display tool-bar for paragraph with pundit policy -->
+              <% if user_signed_in? && policy(paragraph).update? %>
+                <div class="tool-bar-paragraph">
+                  <%= link_to edit_article_paragraph_path(@article, paragraph) do %>
+                    <i class="fas fa-edit"></i>
+                  <% end %>
+                  <i class="fas fa-trash marginleft"></i>
+                </div>
+              <% end %>
             </div>
             <%= simple_format(paragraph.content) %>
           <% end %>
