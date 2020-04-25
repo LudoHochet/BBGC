@@ -9,6 +9,7 @@
         <%= link_to article_path(@article), method: :delete, data: {confirm: "Certain de vouloir supprimer cet article?"} do %>
           <i class="fas fa-trash tool-bar-left-item"></i>
         <% end %>
+        <i class="fas fa-plus tool-bar-left-item"></i>
       </div>
     <% end %>
     <!-- 1ère photo pour illustration de l'article -->
@@ -83,8 +84,9 @@
               <i class="fas fa-edit tool-bar-hidden-item"></i>
             <% end %>
             <%= link_to article_path(@article), method: :delete, data: {confirm: "Certain de vouloir supprimer cet article?"} do %>
-              <i class="fas fa-trash tool-bar-hidden-item" id="trash"></i>
+              <i class="fas fa-trash tool-bar-hidden-item marginleft"></i>
             <% end %>
+            <i class="fas fa-plus tool-bar-hidden-item marginleft"></i>
           </div>
           <%= link_to "retour à l'accueil", root_path, class:"back" %>
         </div>
@@ -96,13 +98,16 @@
       <!-- fin de la toolbar bas de page -->
 
       <!-- zone paragraph -->
-      <p>ajouter un paragraph</p>
-      <%= simple_form_for [@article, @paragraph] do |f| %>
-        <%= f.input :photo, as: :file %>
-        <%= f.input :title %>
-        <%= f.input :content %>
-        <%= f.submit %>
-      <% end %>
+      <div class="section" id="paragraphszone">
+        <div class="paragraph-form">
+          <%= simple_form_for [@article, @paragraph] do |f| %>
+            <%= f.input :photo, as: :file %>
+            <%= f.input :title, label: "sous titre"%>
+            <%= f.input :content, label: "texte" %>
+            <%= f.submit "Ajouter", class:"btn-black"%>
+          <% end %>
+        </div>
+      </div>
 
       <!-- zone reviews -->
       <div class="section" id="reviewszone">
