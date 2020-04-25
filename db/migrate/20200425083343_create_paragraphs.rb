@@ -3,7 +3,7 @@ class CreateParagraphs < ActiveRecord::Migration[6.0]
     create_table :paragraphs do |t|
       t.string :title
       t.text :content
-      t.article :references
+      t.references :article, null: false, foreign_key: true
 
       t.timestamps
     end
