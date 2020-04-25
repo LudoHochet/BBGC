@@ -9,7 +9,7 @@
         <%= link_to article_path(@article), method: :delete, data: {confirm: "Certain de vouloir supprimer cet article?"} do %>
           <i class="fas fa-trash tool-bar-left-item"></i>
         <% end %>
-        <i class="fas fa-plus tool-bar-left-item"></i>
+        <i class="fas fa-plus tool-bar-left-item" id="add-paragraph"></i>
       </div>
     <% end %>
     <!-- 1ère photo pour illustration de l'article -->
@@ -86,7 +86,7 @@
             <%= link_to article_path(@article), method: :delete, data: {confirm: "Certain de vouloir supprimer cet article?"} do %>
               <i class="fas fa-trash tool-bar-hidden-item marginleft"></i>
             <% end %>
-            <i class="fas fa-plus tool-bar-hidden-item marginleft"></i>
+            <i class="fas fa-plus tool-bar-hidden-item marginleft" id="add-paragraph"></i>
           </div>
           <%= link_to "retour à l'accueil", root_path, class:"back" %>
         </div>

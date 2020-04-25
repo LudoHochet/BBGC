@@ -29,6 +29,7 @@ import { initAutocomplete } from '../plugins/init_autocomplete';
 import { revealIsabelle } from '../components/reveal_cards';
 import { revealRoof } from '../components/reveal_cards';
 import { revealReviewForm } from '../components/reveal_forms';
+import { revealParagraphForm } from '../components/reveal_forms';
 // import { overCards } from '../components/over_article_cards';
 
 
@@ -43,4 +44,5 @@ document.addEventListener('turbolinks:load', () => {
   revealIsabelle();
   revealRoof();
   revealReviewForm();
+  revealParagraphForm();
 });
