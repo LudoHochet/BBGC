@@ -1,5 +1,6 @@
 class Article < ApplicationRecord
   CATEGORY = ['news', 'résultats', 'strategie', 'article']
+  has_many :paragraphs
   has_many :reviews
   has_many_attached :photos
   validates :title, presence: true

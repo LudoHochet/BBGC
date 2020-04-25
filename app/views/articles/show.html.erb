@@ -61,8 +61,16 @@
     <!-- contenu de l'article -->
     <div class="article-content">
       <h1><%= @article.title %></h1>
+      <!-- contenu de l'article -->
       <%= simple_format(@article.content) %>
-        <!-- si user = admin -->
+      <% if @article.paragraphs.any? %>
+        <% @article.paragrahs.each do |paragraph| %>
+          <%#= cl_image_tag @paragraph.photo.key %>
+          <%= simple_format(paragraph.content) %>
+        <% end %>
+      <% end %>
+
+      <!-- toolbar article bas de page (si petit ecran + user =admin )+ retour a l'accueil -->
       <% if user_signed_in? && policy(@article).update? %>
         <div class="end d-flex align-items-center justify-content-between">
           <div class="d-flex align-items-center">
@@ -80,10 +88,20 @@
           <%= link_to "retour à l'accueil", root_path, class:"back" %>
         </div>
       <% end %>
+      <!-- fin de la toolbar bas de page -->
 
+      <!-- zone paragraph -->
+      <p>ajouter un paragraph</p>
+      <%= simple_form_for [@article, @paragraph] do |f| %>
+        <%= f.input :photo, as: :file %>
+        <%= f.input :title %>
+        <%= f.input :content %>
+        <%= f.submit %>
+      <% end %>
+
+      <!-- zone reviews -->
       <div class="section" id="reviewszone">
         <p class="review-part">commentaires (<%= @article.reviews.count %>)</p>
-        <!-- display des reviews -->
         <% if @article.reviews.any? %>
           <% @article.reviews.each do |review| %>
             <div class="card-reviews">
@@ -105,7 +123,7 @@
               <%= f.submit "valider", class:"btn-black" %>
           <% end %>
         </div>
-      </div>
+      </div> <!-- fin de la zone reviews -->
       <!-- ---- -->
     </div> <!-- fin de l'article -->
   </div>

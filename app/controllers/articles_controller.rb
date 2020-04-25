@@ -20,6 +20,7 @@ class ArticlesController < ApplicationController
 
   def show
     @review = Review.new
+    @paragraph = Paragraph.new
   end
 
   def edit
