@@ -41,6 +41,13 @@
   margin-bottom: 0;
 }
 
+.paragraph h6 {
+  display: inline-block;
+  font-family: 'Montserrat', sans-serif;
+  padding-right: 1rem;
+  border-bottom: 1px solid $orange;
+}
+
 .carousel-item img {
   height: auto;
   width: 100%;

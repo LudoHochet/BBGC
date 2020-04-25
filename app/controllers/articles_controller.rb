@@ -11,7 +11,7 @@ class ArticlesController < ApplicationController
   def create
     @article = Article.new(articles_params)
     authorize @article
-    if @article.save!
+    if @article.save
       redirect_to article_path(@article)
     else
       render :new

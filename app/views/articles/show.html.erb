@@ -64,10 +64,15 @@
       <!-- contenu de l'article -->
       <%= simple_format(@article.content) %>
       <% if @article.paragraphs.any? %>
-        <% @article.paragrahs.each do |paragraph| %>
-          <%#= cl_image_tag @paragraph.photo.key %>
-          <%= simple_format(paragraph.content) %>
-        <% end %>
+        <div class="paragraph">
+          <% @article.paragraphs.each do |paragraph| %>
+            <% if paragraph.photo.attached? %>
+              <%= cl_image_tag paragraph.photo.key %>
+            <% end %>
+            <h6><%= paragraph.title %></h6>
+            <%= simple_format(paragraph.content) %>
+          <% end %>
+        </div>
       <% end %>
 
       <!-- toolbar article bas de page (si petit ecran + user =admin )+ retour a l'accueil -->

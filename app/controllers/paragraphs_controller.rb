@@ -5,7 +5,9 @@ class ParagraphsController < ApplicationController
     authorize @paragraph
     @article = Article.find(params[:article_id])
     @paragraph.article = @article
-    @paragraph.save
+    if @paragraph.save
+      redirect_to article_path(@article)
+    end
   end
 
   private
