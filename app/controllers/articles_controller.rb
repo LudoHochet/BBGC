@@ -12,7 +12,7 @@ class ArticlesController < ApplicationController
     @article = Article.new(articles_params)
     authorize @article
     if @article.save!
-      redirect_to root_path
+      redirect_to article_path(@article)
     else
       render :new
     end
