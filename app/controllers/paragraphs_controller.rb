@@ -1,4 +1,5 @@
 class ParagraphsController < ApplicationController
+  before_action :set_paragraph, only: :edit
 
   def create
     @paragraph = Paragraph.new(paragraphs_params)
@@ -10,7 +11,16 @@ class ParagraphsController < ApplicationController
     end
   end
 
+  def edit
+    @article = Article.new # for button new article in navbar
+  end
+
   private
+
+  def set_paragraph
+    @paragraph = Paragraph.find(params[:id])
+    authorize @paragraph
+  end
 
   def paragraphs_params
     params.require(:paragraph).permit(:title, :content, :photo)

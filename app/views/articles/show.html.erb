@@ -74,7 +74,9 @@
             <div class="d-flex justify-content-between">
               <h6><%= paragraph.title %></h6>
               <div class="tool-bar-paragraph">
-                <i class="fas fa-edit"></i>
+                <%= link_to edit_article_paragraph_path(@article, paragraph) do %>
+                  <i class="fas fa-edit"></i>
+                <% end %>
                 <i class="fas fa-trash marginleft"></i>
               </div>
             </div>
