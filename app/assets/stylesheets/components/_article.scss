@@ -19,12 +19,11 @@
 //   }
 // }
 
-.survol {
+#photo-link {
   height: 350px;
   width: 100%;
   background-position: center;
   background-size: cover;
-  object-fit: cover;
   &:hover {
     cursor: pointer;
     // -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
@@ -33,23 +32,21 @@
   }
 }
 
+.survol {
+  height: 350px;
+  width: 100%;
+  object-fit: cover;
+}
+
 #modal-link {
   color: white;
   opacity: 0;
   border: 1px solid black;
-  // width: 100%;
-  // height: 100%;
   text-align: center;
   &:hover {
     opacity: 1;
     transition-duration: 1s;
   }
-}
-
-.fade-opacity {
-  color: red;
-  // transition-property: opacity;
-  // transition-duration: 1s;
 }
 
 .article-content {
