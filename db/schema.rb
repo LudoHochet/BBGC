@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_23_215434) do
+ActiveRecord::Schema.define(version: 2020_04_25_083343) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -61,6 +61,15 @@ ActiveRecord::Schema.define(version: 2020_04_23_215434) do
     t.float "longitude"
   end
 
+  create_table "paragraphs", force: :cascade do |t|
+    t.string "title"
+    t.text "content"
+    t.bigint "article_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["article_id"], name: "index_paragraphs_on_article_id"
+  end
+
   create_table "reviews", force: :cascade do |t|
     t.text "content"
     t.bigint "user_id", null: false
@@ -87,6 +96,7 @@ ActiveRecord::Schema.define(version: 2020_04_23_215434) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "paragraphs", "articles"
   add_foreign_key "reviews", "articles"
   add_foreign_key "reviews", "users"
 end

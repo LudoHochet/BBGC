@@ -9,13 +9,14 @@
         <%= link_to article_path(@article), method: :delete, data: {confirm: "Certain de vouloir supprimer cet article?"} do %>
           <i class="fas fa-trash tool-bar-left-item"></i>
         <% end %>
+        <i class="fas fa-plus tool-bar-left-item" id="add-paragraph"></i>
       </div>
     <% end %>
     <!-- 1ère photo pour illustration de l'article -->
-    <div class="photo-first-article ">
+    <!-- <div class="photo-first-article "> -->
       <% if @article.photos.first %>
-        <div data-toggle="modal" data-target="#bbgcModal">
-          <%= cl_image_tag @article.photos.first.key, class:"survol" %>
+        <div class="survol d-flex justify-content-center align-content-stretch" id="photo-link" data-toggle="modal" data-target="#bbgcModal" style="background-image: url('<%= cl_image_path @article.photos.first.key %>');" >
+          <div class="flex-grow-1 d-flex align-items-center justify-content-center" id="modal-link"><span>Voir toutes les photos</span></div>
         </div>
       <% else %>
         <%= image_tag 'https://cdn.pixabay.com/photo/2019/02/25/11/39/backgammon-board-4019437__340.jpg', class:"survol"%>
@@ -56,13 +57,46 @@
         </div>
       </div>
       <!-- fin de la Modal -->
-    </div>
+    <!-- </div> -->
 
     <!-- contenu de l'article -->
     <div class="article-content">
       <h1><%= @article.title %></h1>
+      <!-- display du contenu de l'article -->
       <%= simple_format(@article.content) %>
-        <!-- si user = admin -->
+      <!-- display des paragraphes -->
+      <% if @article.paragraphs.any? %>
+        <div class="paragraph">
+          <% @article.paragraphs.each do |paragraph| %>
+            <% if paragraph.photo.attached? %>
+              <div class="d-flex justify-content-center">
+                <%= cl_image_tag paragraph.photo.key %>
+              </div>
+            <% end %>
+            <div class="d-flex justify-content-between mb-3">
+              <% if paragraph.title.blank? %>
+                <p></p>
+              <% else %>
+                <h6><%= paragraph.title %></h6>
+              <% end %>
+              <!-- display tool-bar for paragraph with pundit policy -->
+              <% if user_signed_in? && policy(paragraph).update? %>
+                <div class="tool-bar-paragraph">
+                  <%= link_to edit_article_paragraph_path(@article, paragraph) do %>
+                    <i class="fas fa-edit"></i>
+                  <% end %>
+                  <%= link_to article_paragraph_path(@article, paragraph), method: :delete, data: {confirm: "Certain de vouloir supprimer ce paragraphe?"} do %>
+                    <i class="fas fa-trash marginleft"></i>
+                  <% end %>
+                </div>
+              <% end %>
+            </div>
+            <%= simple_format(paragraph.content) %>
+          <% end %>
+        </div>
+      <% end %>
+
+      <!-- toolbar article bas de page (si petit ecran + user =admin )+ retour a l'accueil -->
       <% if user_signed_in? && policy(@article).update? %>
         <div class="end d-flex align-items-center justify-content-between">
           <div class="d-flex align-items-center">
@@ -70,8 +104,9 @@
               <i class="fas fa-edit tool-bar-hidden-item"></i>
             <% end %>
             <%= link_to article_path(@article), method: :delete, data: {confirm: "Certain de vouloir supprimer cet article?"} do %>
-              <i class="fas fa-trash tool-bar-hidden-item" id="trash"></i>
+              <i class="fas fa-trash tool-bar-hidden-item marginleft"></i>
             <% end %>
+            <i class="fas fa-plus tool-bar-hidden-item marginleft" id="add-paragraph"></i>
           </div>
           <%= link_to "retour à l'accueil", root_path, class:"back" %>
         </div>
@@ -80,10 +115,35 @@
           <%= link_to "retour à l'accueil", root_path, class:"back" %>
         </div>
       <% end %>
+      <!-- fin de la toolbar bas de page -->
 
+      <!-- paragraph-form -->
+      <div class="section" id="paragraphszone">
+        <div class="paragraph-form">
+          <%= simple_form_for [@article, @paragraph] do |f| %>
+            <div class="row">
+              <div class="col-xs-12 col-sm-6">
+                <div class="form-group">
+                  <%= f.input :title, label: "sous titre"%>
+                </div>
+              </div>
+              <div class="col-xs-12 col-sm-6">
+                <div class="form-group">
+                  <%= f.input :photo, as: :file, class:"form-control" %>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <%= f.input :content, label: "texte" %>
+            </div>
+            <%= f.submit "Ajouter", class:"btn-black"%>
+          <% end %>
+        </div>
+      </div>
+
+      <!-- zone reviews -->
       <div class="section" id="reviewszone">
         <p class="review-part">commentaires (<%= @article.reviews.count %>)</p>
-        <!-- display des reviews -->
         <% if @article.reviews.any? %>
           <% @article.reviews.each do |review| %>
             <div class="card-reviews">
@@ -105,7 +165,7 @@
               <%= f.submit "valider", class:"btn-black" %>
           <% end %>
         </div>
-      </div>
+      </div> <!-- fin de la zone reviews -->
       <!-- ---- -->
     </div> <!-- fin de l'article -->
   </div>

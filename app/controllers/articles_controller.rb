@@ -11,8 +11,8 @@ class ArticlesController < ApplicationController
   def create
     @article = Article.new(articles_params)
     authorize @article
-    if @article.save!
-      redirect_to root_path
+    if @article.save
+      redirect_to article_path(@article)
     else
       render :new
     end
@@ -20,6 +20,7 @@ class ArticlesController < ApplicationController
 
   def show
     @review = Review.new
+    @paragraph = Paragraph.new
   end
 
   def edit
@@ -31,7 +32,6 @@ class ArticlesController < ApplicationController
   end
 
   def destroy
-
     @article.destroy
     redirect_to root_path
   end
