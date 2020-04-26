@@ -16,7 +16,11 @@
     <!-- <div class="photo-first-article "> -->
       <% if @article.photos.first %>
         <div class="survol d-flex justify-content-center align-content-stretch" id="photo-link" data-toggle="modal" data-target="#bbgcModal" style="background-image: url('<%= cl_image_path @article.photos.first.key %>');" >
-          <div class="flex-grow-1 d-flex align-items-center justify-content-center" id="modal-link"><span>Voir toutes les photos</span></div>
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="flex-grow-1 d-flex align-items-center justify-content-center" id="modal-link"><span>Voir toutes les photos</span></div>
+            </div>
+          </div>
         </div>
       <% else %>
         <%= image_tag 'https://cdn.pixabay.com/photo/2019/02/25/11/39/backgammon-board-4019437__340.jpg', class:"survol"%>
