@@ -26,6 +26,7 @@ require("channels")
 import "bootstrap";
 import { initMapbox } from '../plugins/init_mapbox';
 import { initAutocomplete } from '../plugins/init_autocomplete';
+import { loadDynamicBannerText } from '../plugins/typed_js';
 import { revealIsabelle } from '../components/reveal_cards';
 import { revealRoof } from '../components/reveal_cards';
 import { revealReviewForm } from '../components/reveal_forms';
@@ -40,6 +41,7 @@ document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   initMapbox();
+  loadDynamicBannerText();
   initAutocomplete();
   revealIsabelle();
   revealRoof();
