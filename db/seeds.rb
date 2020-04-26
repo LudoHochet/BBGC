@@ -12,8 +12,8 @@ User.destroy_all
 
 
 puts "Creating users..."
-user1 = User.new(password: "password", email: "ludo@bbgc.com", admin: true)
-user2 = User.new(password: "password", email: "gef@bbgc.com", admin: true)
+user1 = User.new(password: "password", email: "ludo@bbgc.com", admin: true, first_name: "Ludovic", last_name:"Hochet")
+user2 = User.new(password: "password", email: "gef@bbgc.com", admin: true, first_name: "Gérard", last_name:"Hochet")
 
 
 [ user1, user2 ].each do |user|
