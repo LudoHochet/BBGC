@@ -21,6 +21,17 @@ class ArticlesController < ApplicationController
   def show
     @review = Review.new
     @paragraph = Paragraph.new
+    @href = @article.content.scan(/http\S*/).join
+    @content = @article.content.gsub(@href,"")
+    @label_link = @article.content.scan(/&&.*&&/).join.gsub("&&", "")
+
+    # get all content of the article
+    # put the all context in a string
+    # search the http address with regex scan(/http\S*/)
+    # search the key word to be the link with **frfr**
+    # remove the http address of the content
+    # create a link_to with keyword and http_path
+
   end
 
   def edit
