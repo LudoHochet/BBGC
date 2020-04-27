@@ -72,17 +72,18 @@
   font-family: 'Montserrat', sans-serif;
   font-size: 1.10rem;
   padding-right: 1rem;
+  margin-top: 1rem;
   border-bottom: 1px solid $orange;
 }
 .paragraph-photo {
   width: 70%;
-  margin-bottom: 1rem;
+  // margin-bottom: 1rem;
   border: 1px solid black;
   margin: 0 auto;
 }
 
 .paragraph img {
-  // height: auto;
+  max-height: 100%;
   max-width: 100%;
   object-fit: cover;
 }
