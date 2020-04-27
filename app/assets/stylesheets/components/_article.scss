@@ -185,15 +185,27 @@
 
 @media (max-width: 576px) {
   .paragraph-photo {
-  width: 90%;
+    width: 90%;
+  }
+  #photo-link {
+    height: 250px;
+  }
+  .default-photo {
+    height: 250px;
   }
 }
 
-@media (max-width: 360px) {
+@media (max-width: 375px) {
   .paragraph-photo {
-  width: 100%;
+    width: 100%;
   }
   .paragraph img {
-  max-width: 250px;
-}
+    max-width: 250px;
+  }
+  #photo-link {
+    height: 200px;
+  }
+  .default-photo {
+    height: 200px;
+  }
 }
