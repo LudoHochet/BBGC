@@ -61,6 +61,7 @@
 
 .tool-bar-paragraph i {
   color: black;
+  margin-top: 1rem;
   opacity: 0.7;
   &:hover {
     opacity: 1;
@@ -77,7 +78,6 @@
 }
 .paragraph-photo {
   width: 70%;
-  // margin-bottom: 1rem;
   border: 1px solid black;
   margin: 0 auto;
 }
