@@ -63,8 +63,14 @@
     <div class="article-content">
       <h1><%= @article.title %></h1>
       <!-- display du contenu de l'article -->
-      <%= simple_format(@content) %>
-      <%= link_to "#{@label_link}", "#{@href}", target: "_blank" %>
+      <%= simple_format(@new_content) %>
+      <%# if @link_code_array.size != 0 %>
+      <!-- replace the link_code by the label_link  -->
+      <%#= @link_code.gsub(@link_code, @label_link) %>
+      <%#= @label_link %>
+      <%# @link_code.gsub(@link_code, @label_link) %>
+        <%= link_to "#{@label_link}", "#{@href}", target: "_blank" %>
+      <%# end %>
       <!-- display des paragraphes -->
       <% if @article.paragraphs.any? %>
         <div class="paragraph">
