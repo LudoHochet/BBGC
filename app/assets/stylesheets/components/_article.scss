@@ -79,8 +79,9 @@
 
 .paragraph-photo {
   width: 70%;
-  border: 1px solid black;
   margin: 0 auto;
+  display: flex;
+  justify-content: center;
 }
 
 .paragraph img {
@@ -190,4 +191,7 @@
   .paragraph-photo {
   width: 100%;
   }
+  .paragraph img {
+  max-width: 250px;
+}
 }
