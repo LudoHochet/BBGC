@@ -32,18 +32,20 @@
   }
 }
 
-.survol {
+.default-photo {
   height: 350px;
   width: 100%;
   object-fit: cover;
 }
 
-#modal-link {
+#text-see-photos {
   color: white;
+  padding: 5px 15px;
   opacity: 0;
   border: 1px solid black;
   text-align: center;
   &:hover {
+    background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4));
     opacity: 1;
     transition-duration: 1s;
   }
