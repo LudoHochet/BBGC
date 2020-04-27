@@ -76,6 +76,7 @@
   margin-top: 1rem;
   border-bottom: 1px solid $orange;
 }
+
 .paragraph-photo {
   width: 70%;
   border: 1px solid black;
@@ -173,5 +174,20 @@
   .show-article {
     margin-left: 10px;
     margin-right: 10px;
+  }
+  .paragraph-photo {
+  width: 80%;
+  }
+}
+
+@media (max-width: 576px) {
+  .paragraph-photo {
+  width: 90%;
+  }
+}
+
+@media (max-width: 360px) {
+  .paragraph-photo {
+  width: 100%;
   }
 }
