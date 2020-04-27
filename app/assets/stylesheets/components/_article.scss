@@ -201,11 +201,15 @@
   }
   .paragraph img {
     max-width: 250px;
+    height: 100%
   }
   #photo-link {
     height: 200px;
   }
   .default-photo {
     height: 200px;
+  }
+  .article-content h1 {
+    font-size: 2rem;
   }
 }
