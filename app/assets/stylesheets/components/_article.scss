@@ -21,7 +21,7 @@
 
 #photo-link {
   height: 350px;
-  width: 100%;
+  width: auto;
   background-position: center;
   background-size: cover;
   &:hover {
@@ -87,9 +87,11 @@
 }
 
 .paragraph img {
-  max-height: 100%;
+  max-height: 250px;
   max-width: 100%;
-  object-fit: cover;
+  width: auto;
+  height: auto;
+  object-fit: contain;
 }
 
 .carousel-item img {
@@ -198,10 +200,6 @@
 @media (max-width: 375px) {
   .paragraph-photo {
     width: 100%;
-  }
-  .paragraph img {
-    max-width: 250px;
-    height: auto;
   }
   #photo-link {
     height: 200px;
