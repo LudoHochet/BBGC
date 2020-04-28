@@ -10,6 +10,7 @@
           <i class="fas fa-trash tool-bar-left-item"></i>
         <% end %>
         <i class="fas fa-plus tool-bar-left-item" id="add-paragraph"></i>
+        <i class="fab fa-internet-explorer tool-bar-left-item" id="add-link"></i>
       </div>
     <% end %>
     <!-- 1ère photo pour illustration de l'article -->
@@ -63,17 +64,21 @@
     <div class="article-content">
       <h1><%= @article.title %></h1>
       <!-- display du contenu de l'article -->
-      <%= simple_format(@new_content) %>
-      <%# if @link_code_array.size != 0 %>
-      <!-- replace the link_code by the label_link  -->
-      <%#= @link_code.gsub(@link_code, @label_link) %>
-      <%#= @label_link %>
-      <%# @link_code.gsub(@link_code, @label_link) %>
-        <%= link_to "#{@label_link}", "#{@href}", target: "_blank" %>
-      <%# end %>
+      <%= simple_format(@article.content) %>
+
+      <!-- display des links de l'article -->
+      <% if @article.links.any? %>
+        <div id="linkszone">
+          <% @article.links.each do |link| %>
+            <p><%= link.text %> <%= link_to "#{link.label}", "#{link.link}", target: "_blank" %></p>
+          <% end %>
+        </div>
+      <% end %>
+
+
       <!-- display des paragraphes -->
       <% if @article.paragraphs.any? %>
-        <div class="paragraph">
+        <div class="paragraph" id="paragraphszone">
           <% @article.paragraphs.each do |paragraph| %>
             <% if paragraph.photo.attached? %>
               <div class="paragraph-photo">
@@ -114,6 +119,7 @@
               <i class="fas fa-trash tool-bar-hidden-item marginleft"></i>
             <% end %>
             <i class="fas fa-plus tool-bar-hidden-item marginleft" id="add-paragraph"></i>
+            <i class="fab fa-internet-explorer tool-bar-hidden-item marginleft" id="add-link"></i>
           </div>
           <%= link_to "retour à l'accueil", root_path, class:"back" %>
         </div>
@@ -125,7 +131,7 @@
       <!-- fin de la toolbar bas de page -->
 
       <!-- paragraph-form -->
-      <div class="section" id="paragraphszone">
+      <div class="section" id="paragraphsform">
         <div class="paragraph-form">
           <%= simple_form_for [@article, @paragraph] do |f| %>
             <div class="row">
@@ -150,17 +156,17 @@
 
 
        <!-- link-form -->
-      <div class="section" id="linkszone">
+      <div class="section" id="linksform">
         <div class="link-form">
           <%= simple_form_for [@article, @link] do |f| %>
             <div class="form-group">
               <%= f.input :text, label: "texte", class:"form-control" %>
             </div>
             <div class="form-group">
-              <%= f.input :link, label: "lien", class:"form-control" %>
+              <%= f.input :label, placeholder: "mot derrière lequel sera caché le lien", class:"form-control" %>
             </div>
             <div class="form-group">
-              <%= f.input :label, placeholder: "mot derrière lequel sera caché le lien", class:"form-control" %>
+              <%= f.input :link, label: "lien", class:"form-control" %>
             </div>
             <%= f.submit "Ajouter", class:"btn-black"%>
           <% end %>

@@ -21,12 +21,13 @@ class ArticlesController < ApplicationController
   def show
     @review = Review.new
     @paragraph = Paragraph.new
-    @href = @article.content.scan(/http\S*/).join #get the url for the link
-    @content = @article.content.gsub(@href,"") # remove the url to the content to display
-    @link_code_array = @article.content.scan(/&&.*&&/) # search for the code link
-    @link_code = @link_code_array.join # transform the array into string to can replace it by the label
-    @label_link = @link_code.gsub("&&", "") # create the label
-    @new_content = @content.gsub(@link_code, @label_link)
+    @link = Link.new
+    # @href = @article.content.scan(/http\S*/).join #get the url for the link
+    # @content = @article.content.gsub(@href,"") # remove the url to the content to display
+    # @link_code_array = @article.content.scan(/&&.*&&/) # search for the code link
+    # @link_code = @link_code_array.join # transform the array into string to can replace it by the label
+    # @label_link = @link_code.gsub("&&", "") # create the label
+    # @new_content = @content.gsub(@link_code, @label_link)
 
 
   end

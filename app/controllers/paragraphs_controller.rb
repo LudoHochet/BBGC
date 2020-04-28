@@ -7,7 +7,7 @@ class ParagraphsController < ApplicationController
     @article = Article.find(params[:article_id])
     @paragraph.article = @article
     if @paragraph.save
-      redirect_to article_path(@article)
+      redirect_to article_path(@article, anchor: 'paragraphszone')
     end
   end
 

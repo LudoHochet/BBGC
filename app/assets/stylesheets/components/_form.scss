@@ -50,9 +50,18 @@ textarea#review_content {
 }
 
 .review-form {
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  padding: 10px;
   display: none;
 }
 .paragraph-form {
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  padding: 10px;
+  display: none;
+}
+.link-form {
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  padding: 10px;
   display: none;
 }
 
