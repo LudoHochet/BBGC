@@ -70,7 +70,17 @@
       <% if @article.links.any? %>
         <div id="linkszone">
           <% @article.links.each do |link| %>
-            <p><%= link.text %> <%= link_to "#{link.label}", "#{link.link}", target: "_blank" %></p>
+            <% if user_signed_in? && policy(link).create? %>
+              <p><%= link.text %> <%= link_to "#{link.label}", "#{link.link}", target: "_blank" %>
+                <%= link_to edit_article_link_path(@article, link) do %>
+                  <i class="fas fa-edit"></i>
+                <% end %>
+                <%= link_to article_link_path(@article, link), method: :delete, data: {confirm: "Certain de vouloir supprimer ce lien"} do %>
+                  <i class="fas fa-trash"></i></p>
+                <% end %>
+            <% else %>
+              <p><%= link.text %> <%= link_to "#{link.label}", "#{link.link}", target: "_blank" %></p>
+            <% end %>
           <% end %>
         </div>
       <% end %>
@@ -93,7 +103,7 @@
               <% end %>
               <!-- display tool-bar for paragraph with pundit policy -->
               <% if user_signed_in? && policy(paragraph).update? %>
-                <div class="tool-bar-paragraph">
+                <div class="tool-bar">
                   <%= link_to edit_article_paragraph_path(@article, paragraph) do %>
                     <i class="fas fa-edit"></i>
                   <% end %>
