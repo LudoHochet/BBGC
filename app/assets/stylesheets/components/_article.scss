@@ -80,6 +80,15 @@
   }
 }
 
+.link i {
+  color: black;
+  opacity: 0.7;
+  &:hover {
+    opacity: 1;
+    cursor: pointer;
+  }
+}
+
 .paragraph h6 {
   display: inline-block;
   font-family: 'Montserrat', sans-serif;

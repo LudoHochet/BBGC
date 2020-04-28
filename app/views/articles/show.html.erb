@@ -68,7 +68,7 @@
 
       <!-- display des links de l'article -->
       <% if @article.links.any? %>
-        <div id="linkszone">
+        <div class="link" id="linkszone">
           <% @article.links.each do |link| %>
             <% if user_signed_in? && policy(link).create? %>
               <p><%= link.text %> <%= link_to "#{link.label}", "#{link.link}", target: "_blank" %> <%= link.suffixe %>
