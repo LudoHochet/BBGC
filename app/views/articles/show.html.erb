@@ -148,6 +148,26 @@
         </div>
       </div>
 
+
+       <!-- link-form -->
+      <div class="section" id="linkszone">
+        <div class="link-form">
+          <%= simple_form_for [@article, @link] do |f| %>
+            <div class="form-group">
+              <%= f.input :text, label: "texte", class:"form-control" %>
+            </div>
+            <div class="form-group">
+              <%= f.input :link, label: "lien", class:"form-control" %>
+            </div>
+            <div class="form-group">
+              <%= f.input :label, placeholder: "mot derrière lequel sera caché le lien", class:"form-control" %>
+            </div>
+            <%= f.submit "Ajouter", class:"btn-black"%>
+          <% end %>
+        </div>
+      </div>
+
+
       <!-- zone reviews -->
       <div class="section" id="reviewszone">
         <p class="review-part">commentaires (<%= @article.reviews.count %>)</p>
