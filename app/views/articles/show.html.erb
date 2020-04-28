@@ -118,8 +118,8 @@
             <%= link_to article_path(@article), method: :delete, data: {confirm: "Certain de vouloir supprimer cet article?"} do %>
               <i class="fas fa-trash tool-bar-hidden-item marginleft"></i>
             <% end %>
-            <i class="fas fa-plus tool-bar-hidden-item marginleft" id="add-paragraph"></i>
-            <i class="fab fa-internet-explorer tool-bar-hidden-item marginleft" id="add-link"></i>
+            <i class="fas fa-plus tool-bar-hidden-item marginleft" id="add-paragraph-small"></i>
+            <i class="fab fa-internet-explorer tool-bar-hidden-item marginleft" id="add-link-small"></i>
           </div>
           <%= link_to "retour à l'accueil", root_path, class:"back" %>
         </div>
@@ -133,6 +133,7 @@
       <!-- paragraph-form -->
       <div class="section" id="paragraphsform">
         <div class="paragraph-form">
+          <p class="text-center">AJOUT D'UN NOUVEAU PARAGRAPHE</p>
           <%= simple_form_for [@article, @paragraph] do |f| %>
             <div class="row">
               <div class="col-xs-12 col-sm-6">
@@ -158,6 +159,8 @@
        <!-- link-form -->
       <div class="section" id="linksform">
         <div class="link-form">
+          <p class="text-center">AJOUT D'UN NOUVEAU LIEN</p>
+          <!-- <i class="fas fa-times close" id="close-link-form"></i> -->
           <%= simple_form_for [@article, @link] do |f| %>
             <div class="form-group">
               <%= f.input :text, label: "texte", class:"form-control" %>

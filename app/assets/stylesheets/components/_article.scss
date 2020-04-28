@@ -10,6 +10,15 @@
   text-align: justify;
 }
 
+.article a {
+  color: #E67E22;
+  cursor: pointer;
+  opacity: 0.7;
+  &:hover{
+    opacity: 1;
+    text-decoration: none;
+  }
+}
 // .photo-first-article {
 //   display: flex;
 //   justify-content: center;
@@ -70,6 +79,7 @@
     cursor: pointer;
   }
 }
+
 .paragraph h6 {
   display: inline-block;
   font-family: 'Montserrat', sans-serif;
