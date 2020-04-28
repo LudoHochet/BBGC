@@ -10,6 +10,7 @@
           <i class="fas fa-trash tool-bar-left-item"></i>
         <% end %>
         <i class="fas fa-plus tool-bar-left-item" id="add-paragraph"></i>
+        <i class="fab fa-internet-explorer tool-bar-left-item" id="add-link"></i>
       </div>
     <% end %>
     <!-- 1ère photo pour illustration de l'article -->
@@ -64,9 +65,30 @@
       <h1><%= @article.title %></h1>
       <!-- display du contenu de l'article -->
       <%= simple_format(@article.content) %>
+
+      <!-- display des links de l'article -->
+      <% if @article.links.any? %>
+        <div class="link" id="linkszone">
+          <% @article.links.each do |link| %>
+            <% if user_signed_in? && policy(link).create? %>
+              <p><%= link.text %> <%= link_to "#{link.label}", "#{link.link}", target: "_blank" %> <%= link.suffixe %>
+                <%= link_to edit_article_link_path(@article, link) do %>
+                  <i class="fas fa-edit"></i>
+                <% end %>
+                <%= link_to article_link_path(@article, link), method: :delete, data: {confirm: "Certain de vouloir supprimer ce lien"} do %>
+                  <i class="fas fa-trash"></i></p>
+                <% end %>
+            <% else %>
+              <p><%= link.text %> <%= link_to "#{link.label}", "#{link.link}", target: "_blank" %> <%= link.suffixe %></p>
+            <% end %>
+          <% end %>
+        </div>
+      <% end %>
+
+
       <!-- display des paragraphes -->
       <% if @article.paragraphs.any? %>
-        <div class="paragraph">
+        <div class="paragraph" id="paragraphszone">
           <% @article.paragraphs.each do |paragraph| %>
             <% if paragraph.photo.attached? %>
               <div class="paragraph-photo">
@@ -81,7 +103,7 @@
               <% end %>
               <!-- display tool-bar for paragraph with pundit policy -->
               <% if user_signed_in? && policy(paragraph).update? %>
-                <div class="tool-bar-paragraph">
+                <div class="tool-bar">
                   <%= link_to edit_article_paragraph_path(@article, paragraph) do %>
                     <i class="fas fa-edit"></i>
                   <% end %>
@@ -106,7 +128,8 @@
             <%= link_to article_path(@article), method: :delete, data: {confirm: "Certain de vouloir supprimer cet article?"} do %>
               <i class="fas fa-trash tool-bar-hidden-item marginleft"></i>
             <% end %>
-            <i class="fas fa-plus tool-bar-hidden-item marginleft" id="add-paragraph"></i>
+            <i class="fas fa-plus tool-bar-hidden-item marginleft" id="add-paragraph-small"></i>
+            <i class="fab fa-internet-explorer tool-bar-hidden-item marginleft" id="add-link-small"></i>
           </div>
           <%= link_to "retour à l'accueil", root_path, class:"back" %>
         </div>
@@ -118,8 +141,9 @@
       <!-- fin de la toolbar bas de page -->
 
       <!-- paragraph-form -->
-      <div class="section" id="paragraphszone">
+      <div class="section" id="paragraphsform">
         <div class="paragraph-form">
+          <p class="text-center">AJOUT D'UN NOUVEAU PARAGRAPHE</p>
           <%= simple_form_for [@article, @paragraph] do |f| %>
             <div class="row">
               <div class="col-xs-12 col-sm-6">
@@ -140,6 +164,31 @@
           <% end %>
         </div>
       </div>
+
+
+       <!-- link-form -->
+      <div class="section" id="linksform">
+        <div class="link-form">
+          <p class="text-center">AJOUT D'UN NOUVEAU LIEN</p>
+          <!-- <i class="fas fa-times close" id="close-link-form"></i> -->
+          <%= simple_form_for [@article, @link] do |f| %>
+            <div class="form-group">
+              <%= f.input :text, label: "texte avant le lien", class:"form-control" %>
+            </div>
+            <div class="form-group">
+              <%= f.input :label, placeholder: "mot derrière lequel sera caché le lien", class:"form-control" %>
+            </div>
+            <div class="form-group">
+              <%= f.input :suffixe, label: "texte après le lien", class:"form-control" %>
+            </div>
+            <div class="form-group">
+              <%= f.input :link, label: "lien", class:"form-control" %>
+            </div>
+            <%= f.submit "Ajouter", class:"btn-black"%>
+          <% end %>
+        </div>
+      </div>
+
 
       <!-- zone reviews -->
       <div class="section" id="reviewszone">

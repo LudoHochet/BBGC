@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_25_083343) do
+ActiveRecord::Schema.define(version: 2020_04_28_141138) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,6 +50,17 @@ ActiveRecord::Schema.define(version: 2020_04_25_083343) do
     t.text "message"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "links", force: :cascade do |t|
+    t.string "text"
+    t.string "link"
+    t.string "label"
+    t.bigint "article_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "suffixe"
+    t.index ["article_id"], name: "index_links_on_article_id"
   end
 
   create_table "locations", force: :cascade do |t|
@@ -96,6 +107,7 @@ ActiveRecord::Schema.define(version: 2020_04_25_083343) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "links", "articles"
   add_foreign_key "paragraphs", "articles"
   add_foreign_key "reviews", "articles"
   add_foreign_key "reviews", "users"

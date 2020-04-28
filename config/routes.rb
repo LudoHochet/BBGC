@@ -9,5 +9,6 @@ Rails.application.routes.draw do
   resources :articles do
     resources :reviews, only: [:create, :destroy]
     resources :paragraphs, only: [:create, :edit, :update, :destroy]
+    resources :links, only: [:create, :edit, :update, :destroy]
   end
 end

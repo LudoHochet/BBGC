@@ -50,12 +50,32 @@ textarea#review_content {
 }
 
 .review-form {
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  padding: 10px;
   display: none;
 }
 .paragraph-form {
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  padding: 10px;
   display: none;
+  margin-bottom: 10px;
+}
+.link-form {
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  padding: 10px;
+  display: none;
+  margin-bottom: 10px;
+  position: relative;
 }
 
+.close {
+  position: absolute;
+  right: 10px;
+  top:10px;
+  &:hover {
+    cursor: pointer;
+  }
+}
 .visible {
   display: block;
 }
