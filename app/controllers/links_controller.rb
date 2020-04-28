@@ -39,6 +39,6 @@ class LinksController < ApplicationController
   private
 
   def links_params
-    params.require(:link).permit(:text, :label, :link)
+    params.require(:link).permit(:text, :label, :link, :suffixe)
   end
 end

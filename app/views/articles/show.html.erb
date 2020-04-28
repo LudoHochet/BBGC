@@ -71,7 +71,7 @@
         <div id="linkszone">
           <% @article.links.each do |link| %>
             <% if user_signed_in? && policy(link).create? %>
-              <p><%= link.text %> <%= link_to "#{link.label}", "#{link.link}", target: "_blank" %>
+              <p><%= link.text %> <%= link_to "#{link.label}", "#{link.link}", target: "_blank" %> <%= link.suffixe %>
                 <%= link_to edit_article_link_path(@article, link) do %>
                   <i class="fas fa-edit"></i>
                 <% end %>
@@ -79,7 +79,7 @@
                   <i class="fas fa-trash"></i></p>
                 <% end %>
             <% else %>
-              <p><%= link.text %> <%= link_to "#{link.label}", "#{link.link}", target: "_blank" %></p>
+              <p><%= link.text %> <%= link_to "#{link.label}", "#{link.link}", target: "_blank" %> <%= link.suffixe %></p>
             <% end %>
           <% end %>
         </div>
@@ -173,10 +173,13 @@
           <!-- <i class="fas fa-times close" id="close-link-form"></i> -->
           <%= simple_form_for [@article, @link] do |f| %>
             <div class="form-group">
-              <%= f.input :text, label: "texte", class:"form-control" %>
+              <%= f.input :text, label: "texte avant le lien", class:"form-control" %>
             </div>
             <div class="form-group">
               <%= f.input :label, placeholder: "mot derrière lequel sera caché le lien", class:"form-control" %>
+            </div>
+            <div class="form-group">
+              <%= f.input :suffixe, label: "texte après le lien", class:"form-control" %>
             </div>
             <div class="form-group">
               <%= f.input :link, label: "lien", class:"form-control" %>
