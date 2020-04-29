@@ -148,7 +148,7 @@
             <div class="row">
               <div class="col-xs-12 col-sm-6">
                 <div class="form-group">
-                  <%= f.input :title, label: "sous titre"%>
+                  <%= f.input :title, label: "sous titre", autofocus: true%>
                 </div>
               </div>
               <div class="col-xs-12 col-sm-6">
@@ -173,7 +173,7 @@
           <!-- <i class="fas fa-times close" id="close-link-form"></i> -->
           <%= simple_form_for [@article, @link] do |f| %>
             <div class="form-group">
-              <%= f.input :text, label: "texte avant le lien", class:"form-control" %>
+              <%= f.input :text, label: "texte avant le lien", class:"form-control", autofocus: true %>
             </div>
             <div class="form-group">
               <%= f.input :label, placeholder: "mot derrière lequel sera caché le lien", class:"form-control" %>
@@ -210,7 +210,7 @@
         <!-- form pour création des reviews -->
         <div class="review-form">
             <%= simple_form_for [@article, @review] do |f|%>
-              <%= f.input :content, label: "votre commentaire", required: false, autofocus: true %>
+              <%= f.input :content, label: "votre commentaire", autofocus: true, required: false %>
               <%= f.submit "valider", class:"btn-black" %>
           <% end %>
         </div>
