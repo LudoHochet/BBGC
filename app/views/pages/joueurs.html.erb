@@ -14,13 +14,23 @@
             <div class="players-class">
               <div class="class">
                 <p class="type">LIVE</p>
-                <p><%= player.live_class %>ème</p>
-                <p>elo: <%= player.live_elo %></p>
+                <% if player.live_class.nil? %>
+                  <p>NC</p>
+                  <p>NC</p>
+                <% else %>
+                  <p><%= player.live_class %>ème</p>
+                  <p>elo: <%= player.live_elo %></p>
+                <% end %>
               </div>
               <div class="class">
                 <p class="type">ONLINE</p>
-                <p><%= player.online_class %>ème</p>
-                <p>elo: <%= player.online_elo %></p>
+                <% if player.online_class.nil? %>
+                  <p>NC</p>
+                  <p>NC</p>
+                <% else %>
+                  <p><%= player.online_class %>ème</p>
+                  <p>elo: <%= player.online_elo %></p>
+                <% end %>
               </div>
             </div>
           </div>
