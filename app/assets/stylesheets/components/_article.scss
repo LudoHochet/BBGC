@@ -150,10 +150,10 @@
 }
 
 .back {
-  color: black;
+  color: $orange;
   opacity: 0.7;
   &:hover {
-    color: black;
+    color: $orange;
     text-decoration: none;
     opacity: 1;
   }

@@ -4,6 +4,7 @@ const revealReviewForm = () => {
     btnNewReview.addEventListener('click', () => {
       const reviewForm = document.querySelector('.review-form');
       reviewForm.classList.add('visible');
+      reviewForm.scrollIntoView({behavior: "smooth"});
     });
   }
 };
@@ -14,6 +15,7 @@ const revealParagraphForm = () => {
     btnNewParagraph.addEventListener('click', () => {
       const paragraphForm = document.querySelector('.paragraph-form');
       paragraphForm.classList.add('visible');
+      paragraphForm.scrollIntoView({behavior: "smooth"});
     });
   }
 };
@@ -24,6 +26,7 @@ const revealLinkForm = () => {
     btnNewLink.addEventListener('click', () => {
       const linkForm = document.querySelector('.link-form');
       linkForm.classList.add('visible');
+      linkForm.scrollIntoView({behavior: "smooth"});
     });
   }
 };
@@ -35,6 +38,7 @@ const revealSmallParagraphForm = () => {
     btnNewParagraphSmall.addEventListener('click', () => {
       const paragraphForm = document.querySelector('.paragraph-form');
       paragraphForm.classList.add('visible');
+      paragraphForm.scrollIntoView({behavior: "smooth"});
     });
   }
 };
@@ -45,6 +49,7 @@ const revealSmallLinkForm = () => {
     btnNewLinkSmall.addEventListener('click', () => {
       const linkForm = document.querySelector('.link-form');
       linkForm.classList.add('visible');
+      linkForm.scrollIntoView({behavior: "smooth"});
     });
   }
 };

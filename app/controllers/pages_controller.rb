@@ -37,6 +37,7 @@ class PagesController < ApplicationController
 
   def joueurs
     @article = Article.new
+    @players = Player.all
   end
 end
 
