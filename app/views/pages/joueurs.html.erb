@@ -1,31 +1,31 @@
 <div class="container joueurs">
   <div class="row">
 
-    <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
       <!-- card players -->
       <% @players.each do |player| %>
-        <div class="card-players">
-          <div class="d-flex justify-content-center align-items-center my-3">
-            <div class="players-illustration">
-              <h6><%= player.first_name.first.capitalize %> <%= player.last_name.first.capitalize %></h6>
+        <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
+          <div class="card-players">
+            <div class="d-flex justify-content-center align-items-center my-3">
+              <div class="players-illustration">
+                <h6><%= player.first_name.first.capitalize %> <%= player.last_name.first.capitalize %></h6>
+              </div>
             </div>
-          </div>
-          <p class="name"><%= player.first_name.capitalize %> <%= player.last_name.capitalize %></p>
-          <div class="players-class">
-            <div class="class">
-              <p class="type">LIVE</p>
-              <p><%= player.live_class %>ème</p>
-              <p>elo: <%= player.live_elo %></p>
-            </div>
-            <div class="class">
-              <p class="type">ONLINE</p>
-              <p><%= player.online_class %>ème</p>
-              <p>elo: <%= player.online_elo %></p>
+            <p class="name"><%= player.first_name.capitalize %> <%= player.last_name.capitalize %></p>
+            <div class="players-class">
+              <div class="class">
+                <p class="type">LIVE</p>
+                <p><%= player.live_class %>ème</p>
+                <p>elo: <%= player.live_elo %></p>
+              </div>
+              <div class="class">
+                <p class="type">ONLINE</p>
+                <p><%= player.online_class %>ème</p>
+                <p>elo: <%= player.online_elo %></p>
+              </div>
             </div>
           </div>
         </div>
       <% end %>
-    </div>
 
 
   </div>
