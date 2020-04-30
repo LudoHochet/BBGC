@@ -1,0 +1,30 @@
+<div class="container my-3">
+  <%= simple_form_for @player do |f| %>
+    <div class="row">
+      <div class="col-sm-12 col-md-6">
+        <%= f.input :first_name %>
+      </div>
+      <div class="col-sm-12 col-md-6">
+        <%= f.input :last_name %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 col-md-6">
+        <%= f.input :live_elo %>
+      </div>
+      <div class="col-sm-12 col-md-6">
+        <%= f.input :live_class%>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 col-md-6">
+        <%= f.input :online_elo %>
+      </div>
+      <div class="col-sm-12 col-md-6">
+        <%= f.input :online_class %>
+      </div>
+    </div>
+    <%= f.submit %>
+  <% end %>
+</div>
+

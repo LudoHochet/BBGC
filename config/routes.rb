@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get '/contact', to: 'pages#contact'
   get '/joueurs', to: 'pages#joueurs'
   resources :contacts, only: :create
+  resources :players, only: [:new, :create]
   resources :articles do
     resources :reviews, only: [:create, :destroy]
     resources :paragraphs, only: [:create, :edit, :update, :destroy]
