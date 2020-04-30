@@ -37,7 +37,7 @@ class PagesController < ApplicationController
 
   def joueurs
     @article = Article.new
-    @players = Player.all
+    @players = Player.order(:live_class)
   end
 end
 
