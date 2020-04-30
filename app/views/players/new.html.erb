@@ -1,5 +1,5 @@
-<div class="container">
-   <% simple_form_for @player do |f| %>
+<div class="container my-3">
+   <%= simple_form_for @player do |f| %>
     <%= f.input :first_name %>
     <%= f.input :last_name %>
     <%= f.input :live_elo %>
@@ -7,4 +7,5 @@
     <%= f.input :online_elo %>
     <%= f.input :online_class %>
     <%= f.submit %>
+  <% end %>
 </div>
