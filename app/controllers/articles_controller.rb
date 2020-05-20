@@ -36,8 +36,11 @@ class ArticlesController < ApplicationController
   end
 
   def update
-    @article.update(articles_params)
-    redirect_to article_path(@article)
+    if @article.update(articles_params)
+      redirect_to article_path(@article)
+    else
+      render :edit
+    end
   end
 
   def destroy
