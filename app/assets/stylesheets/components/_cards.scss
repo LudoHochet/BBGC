@@ -5,10 +5,8 @@
   padding: 2px;
   box-shadow: 0 0 10px rgba(0,0,0,0.2);
   border: 2px solid white;
-  transition: transform 0.3s ease;
   &:hover {
     border: 2px solid #E67E22;
-    transform: scale(1.03);
   }
 }
 
