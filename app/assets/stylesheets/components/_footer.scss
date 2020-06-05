@@ -15,7 +15,7 @@
 
 .footer-links a {
   color: black;
-  opacity: 0.15;
+  opacity: 0.25;
   text-decoration: none;
   font-size: 24px;
   padding: 0px 10px;
@@ -23,11 +23,32 @@
 
 .footer-links a:hover {
   opacity: 1;
+  transition: 0.5s;
 }
 
 .footer-copyright {
   font-size: 15px;
   margin-bottom: 0px;
+}
+
+.madeby {
+  font-size: 12px;
+}
+
+.madeby p {
+  margin-bottom: 0px;
+}
+
+.link-pro {
+  font-size: 15px;
+  color: black;
+  opacity: 0.25;
+  text-decoration: none;
+  &:hover {
+    opacity: 1;
+    color: black;
+    transition: 0.5s;
+  }
 }
 
 .siret{
