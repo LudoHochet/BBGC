@@ -1,4 +1,5 @@
 class PlayersController < ApplicationController
+  before_action :set_player, only: [:edit, :update]
 
   def new
     @player = Player.new
@@ -16,7 +17,24 @@ class PlayersController < ApplicationController
     end
   end
 
+
+  def edit
+  end
+
+  def update
+    if @player.update(players_params)
+      redirect_to joueurs_path
+    else
+      render :edit
+    end
+  end
+
   private
+
+  def set_player
+    @player = Player.find(params[:id])
+    authorize @player
+  end
 
   def params_players
     params.require(:player).permit(:first_name, :last_name, :live_elo, :live_class, :online_elo, :online_class)
