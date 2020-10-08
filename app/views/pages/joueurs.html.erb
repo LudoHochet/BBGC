@@ -38,7 +38,7 @@
   </div> <!-- end of cards players -->
   <div>
     <% if user_signed_in? && policy(@players).create? %>
-      <%= link_to "nouvel article", new_player_path, class:"nav-link" %>
+      <%= link_to "nouveau joueur", new_player_path, class:"btn-black" %>
     <% end %>
   </div>
 </div>
