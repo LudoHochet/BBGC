@@ -32,11 +32,13 @@
               <% end %>
             </div>
           </div>
-          <div class="player-edit">
-            <%= link_to edit_player_path(player) do %>
-              <i class="fas fa-user-edit"></i>
-            <% end %>
-          </div>
+          <% if user_signed_in? && policy(@players).update? %>
+            <div class="player-edit">
+              <%= link_to edit_player_path(player) do %>
+                <i class="fas fa-user-edit"></i>
+              <% end %>
+            </div>
+          <% end %>
         </div>
       </div>
     <% end %>
