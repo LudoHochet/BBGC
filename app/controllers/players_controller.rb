@@ -19,6 +19,7 @@ class PlayersController < ApplicationController
 
 
   def edit
+    @article = Article.new # for button in navbar
   end
 
   def update

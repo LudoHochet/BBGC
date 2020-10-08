@@ -32,7 +32,11 @@
               <% end %>
             </div>
           </div>
-          <i class="fas fa-user-edit player-edit"></i>
+          <div class="player-edit">
+            <%= link_to edit_player_path(player) do %>
+              <i class="fas fa-user-edit"></i>
+            <% end %>
+          </div>
         </div>
       </div>
     <% end %>
