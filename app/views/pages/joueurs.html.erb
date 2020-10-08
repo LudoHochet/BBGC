@@ -1,43 +1,45 @@
 <div class="container joueurs">
   <div class="row">
-
-      <!-- card players -->
-      <% @players.each do |player| %>
-        <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
-          <div class="card-players">
-            <div class="d-flex justify-content-center align-items-center my-3">
-              <div class="players-illustration">
-                <h6><%= player.first_name.first.capitalize %> <%= player.last_name.first.capitalize %></h6>
-              </div>
+    <!-- card players -->
+    <% @players.each do |player| %>
+      <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
+        <div class="card-players">
+          <div class="d-flex justify-content-center align-items-center my-3">
+            <div class="players-illustration">
+              <h6><%= player.first_name.first.capitalize %> <%= player.last_name.first.capitalize %></h6>
             </div>
-            <p class="name"><%= player.first_name.capitalize %> <%= player.last_name.upcase %></p>
-            <div class="players-class">
-              <div class="class">
-                <p class="type">LIVE</p>
-                <% if player.live_class.nil? %>
-                  <p>NC</p>
-                  <p>NC</p>
-                <% else %>
-                  <p><%= player.live_class %> ème</p>
-                  <p>elo: <%= player.live_elo %></p>
-                <% end %>
-              </div>
-              <div class="class">
-                <p class="type online">ONLINE</p>
-                <% if player.online_class.nil? %>
-                  <p>NC</p>
-                  <p>NC</p>
-                <% else %>
-                  <p><%= player.online_class %> ème</p>
-                  <p>elo: <%= player.online_elo %></p>
-                <% end %>
-              </div>
+          </div>
+          <p class="name"><%= player.first_name.capitalize %> <%= player.last_name.upcase %></p>
+          <div class="players-class">
+            <div class="class">
+              <p class="type">LIVE</p>
+              <% if player.live_class.nil? %>
+                <p>NC</p>
+                <p>NC</p>
+              <% else %>
+                <p><%= player.live_class %> ème</p>
+                <p>elo: <%= player.live_elo %></p>
+              <% end %>
+            </div>
+            <div class="class">
+              <p class="type online">ONLINE</p>
+              <% if player.online_class.nil? %>
+                <p>NC</p>
+                <p>NC</p>
+              <% else %>
+                <p><%= player.online_class %> ème</p>
+                <p>elo: <%= player.online_elo %></p>
+              <% end %>
             </div>
           </div>
         </div>
-      <% end %>
-
-
+      </div>
+    <% end %>
+  </div> <!-- end of cards players -->
+  <div>
+    <% if user_signed_in? && policy(@players).create? %>
+      <%= link_to "nouvel article", new_player_path, class:"nav-link" %>
+    <% end %>
   </div>
 </div>
 
