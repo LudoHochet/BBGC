@@ -40,11 +40,14 @@
         </div>
       </div>
     <% end %>
+    <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
+      <div class="card-plus d-flex justify-content-center align-items-center">
+        <% if user_signed_in? && policy(@players).create? %>
+          <%= link_to new_player_path do %>
+            <i class="fas fa-plus add-player"></i>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
   </div> <!-- end of cards players -->
-  <div>
-    <% if user_signed_in? && policy(@players).create? %>
-      <%= link_to "nouveau joueur", new_player_path, class:"btn-black" %>
-    <% end %>
-  </div>
 </div>
-
