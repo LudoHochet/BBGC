@@ -38,6 +38,7 @@ class PagesController < ApplicationController
   def joueurs
     @article = Article.new
     @players = Player.order(:live_class)
+    @players_online = Player.order(:online_class)
   end
 end
 
