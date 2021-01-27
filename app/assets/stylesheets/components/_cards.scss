@@ -212,16 +212,39 @@
   margin-left: 20px;
 }
 
-// .stats {
-//   margin-left: 50px;
-// }
+.live_stats {
+  padding: 10px;
+  margin-right: 20px;
+  border-top: 1px solid black;
+  border-right: 1px solid black;
+  & p {
+    margin: 0 15px;
+  }
+}
 
-// .classmt {
-//   text-align: center;
-// }
+.live_cat {
+  background-color: black;
+  color: white;
+  padding: 5px;
+  font-size: 12px;
+}
 
+.online_stats {
+  padding: 10px;
+  // margin-right: 20px;
+  border-bottom: 1px solid $orange;
+  border-left: 1px solid $orange;
+   & p {
+    margin: 0 15px;
+  }
+}
 
-
+.online_cat {
+  background-color: $orange;
+  color: white;
+  padding: 5px;
+  font-size: 12px;
+}
 
 
 
