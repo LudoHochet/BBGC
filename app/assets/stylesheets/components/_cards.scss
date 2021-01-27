@@ -188,5 +188,82 @@
   font-size: 15px;
 }
 
+// test pour nouvelle card joueur
+//
+//
+
+.new_card {
+  // pour espacer du reste
+  margin: 50px 0;
+  //
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 30px rgba(200, 200, 200, 0.7);
+  & p{
+    margin-bottom: 0;
+  }
+}
+
+.position {
+  margin-right: 20px;
+}
+
+.identite {
+  margin-left: 20px;
+}
+
+// .stats {
+//   margin-left: 50px;
+// }
+
+// .classmt {
+//   text-align: center;
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
