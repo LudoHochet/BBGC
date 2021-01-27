@@ -188,5 +188,115 @@
   font-size: 15px;
 }
 
+// test pour nouvelle card joueur
+//
+//
+
+.new_card {
+  // pour espacer du reste
+  margin: 10px 0;
+  //
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 30px rgba(200, 200, 200, 0.7);
+  background: linear-gradient(-238deg, $orange 12%, white 12%, white 80%);
+  & p{
+    margin-bottom: 0;
+  }
+}
+
+.new_card img {
+  width: 30px;
+}
+
+.position {
+  margin-right: 20px;
+  color: white;
+  font-size: 40px;
+  font-family: 'Kaushan Script', cursive;
+}
+
+.identite {
+  margin-left: 20px;
+}
+
+.live_stats {
+  padding: 10px;
+  margin-right: 20px;
+  border-top: 1px solid black;
+  border-right: 1px solid black;
+  & p {
+    margin: 0 15px;
+    font-weight: lighter;
+  }
+}
+
+.live_cat {
+  background-color: black;
+  color: white;
+  padding: 5px;
+  font-size: 12px;
+}
+
+.online_stats {
+  padding: 10px;
+  // margin-right: 20px;
+  border-bottom: 1px solid $orange;
+  border-left: 1px solid $orange;
+   & p {
+    margin: 0 15px;
+    font-weight: lighter;
+  }
+}
+
+.online_cat {
+  background-color: $orange;
+  color: white;
+  padding: 5px;
+  font-size: 12px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
