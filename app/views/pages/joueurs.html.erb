@@ -1,4 +1,10 @@
 <div class="container joueurs">
+  <!-- categorie de classement -->
+  <div class="d-flex justify-content-center align-items-center">
+    <p class="live_class mr-2">Classement LIVE</p>
+    <p class="online_class ml-2">Classement ONLINE</p>
+  </div>
+
   <% @players.each_with_index do |player, index| %>
     <div class="card_player d-flex justify-content-around align-items-center">
       <!-- 1.1 -->
