@@ -194,11 +194,12 @@
 
 .new_card {
   // pour espacer du reste
-  margin: 50px 0;
+  margin: 10px 0;
   //
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 0 30px rgba(200, 200, 200, 0.7);
+  background: linear-gradient(-238deg, $orange 12%, white 12%, white 80%);
   & p{
     margin-bottom: 0;
   }
@@ -206,6 +207,9 @@
 
 .position {
   margin-right: 20px;
+  color: white;
+  font-size: 40px;
+  font-family: 'Kaushan Script', cursive;
 }
 
 .identite {
@@ -219,6 +223,7 @@
   border-right: 1px solid black;
   & p {
     margin: 0 15px;
+    font-weight: lighter;
   }
 }
 
@@ -236,6 +241,7 @@
   border-left: 1px solid $orange;
    & p {
     margin: 0 15px;
+    font-weight: lighter;
   }
 }
 
