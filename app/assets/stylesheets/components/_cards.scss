@@ -96,7 +96,10 @@
   font-size: 15px;
 }
 
+//
 //nouvelle card joueur
+//
+
 
 .card_player {
   position: relative;
@@ -207,6 +210,11 @@
       color: rgb(40,40,50);
     }
   }
+}
+
+.lighter {
+  opacity: 0.3;
+  filter: grayscale(70%);
 }
 
 
