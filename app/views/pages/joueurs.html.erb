@@ -5,77 +5,157 @@
     <p class="online_class ml-2">Classement ONLINE</p>
   </div>
 
-  <% @players.each_with_index do |player, index| %>
-    <div class="card_player d-flex justify-content-around align-items-center">
-      <!-- 1.1 -->
-      <div class="position">
-        <p><%= index + 1 %></p>
-      </div>
-      <!-- fin 1.1 -->
-      <!-- 1.2 -->
-      <div class="d-flex justify-content-between align-items-center flex-grow-1">
-        <!-- 2.1 -->
-        <div class="players-illustration">
-          <h6><%= player.first_name.first.capitalize %> <%= player.last_name.first.capitalize %></h6>
+
+  <div class="live_classement">
+    <% @players.each_with_index do |player, index| %>
+      <div class="card_player d-flex justify-content-around align-items-center">
+        <!-- 1.1 -->
+        <div class="position">
+          <p><%= index + 1 %></p>
         </div>
-        <!-- fin 2.1 -->
-        <!-- 2.2 -->
-        <div class="identite mr-auto">
-          <p><%= player.first_name.capitalize %> <%= player.last_name.upcase %></p>
-        </div>
-        <!-- fin 2.2 -->
-        <!-- 2.3 -->
-        <div class="stats d-flex justify-content-between align-items-center">
-          <!-- 3.1 -->
-          <div class="live_stats d-flex justify-content-between align-items-center">
-            <% if player.live_class.nil? %>
-              <div class="d-flex justify-content-between align-items-center">
-                <%= image_tag "france.png" %>
-                <p class="ml-1">N.C</p>
-              </div>
-              <p class="ml-1">Elo: N.C</p>
-            <% else %>
-              <div class="d-flex justify-content-between align-items-center">
-                <%= image_tag "france.png" %>
-                <p class="ml-1"><%= player.live_class %></p>
-              </div>
-              <p class="ml-1">Elo: <%= player.live_elo %></p>
-            <% end %>
-            <p class="live_cat">LIVE</p>
+        <!-- fin 1.1 -->
+        <!-- 1.2 -->
+        <div class="d-flex justify-content-between align-items-center flex-grow-1">
+          <!-- 2.1 -->
+          <div class="players-illustration">
+            <h6><%= player.first_name.first.capitalize %> <%= player.last_name.first.capitalize %></h6>
           </div>
-          <!-- fin 3.1 -->
-          <!-- 3.2 -->
-          <div class="online_stats lighter d-flex justify-content-between align-items-center">
-            <% if player.online_class.nil? %>
-              <div class="d-flex justify-content-between align-items-center">
-                <%= image_tag "france.png" %>
-                <p class="ml-1">N.C</p>
-              </div>
-              <p class="ml-1">Elo: N.C</p>
-            <% else %>
-              <div class="d-flex justify-content-between align-items-center">
-                <%= image_tag "france.png" %>
-                <p class="ml-1"><%= player.online_class %></p>
-              </div>
-              <p class="ml-1">Elo: <%= player.online_elo %></p>
-            <% end %>
-            <p class="online_cat">ONLINE</p>
+          <!-- fin 2.1 -->
+          <!-- 2.2 -->
+          <div class="identite mr-auto">
+            <p><%= player.first_name.capitalize %> <%= player.last_name.upcase %></p>
           </div>
-          <!-- fin 3.2 -->
+          <!-- fin 2.2 -->
+          <!-- 2.3 -->
+          <div class="stats d-flex justify-content-between align-items-center">
+            <!-- 3.1 -->
+            <div class="live_stats d-flex justify-content-between align-items-center">
+              <% if player.live_class.nil? %>
+                <div class="d-flex justify-content-between align-items-center">
+                  <%= image_tag "france.png" %>
+                  <p class="ml-1">N.C</p>
+                </div>
+                <p class="ml-1">Elo: N.C</p>
+              <% else %>
+                <div class="d-flex justify-content-between align-items-center">
+                  <%= image_tag "france.png" %>
+                  <p class="ml-1"><%= player.live_class %></p>
+                </div>
+                <p class="ml-1">Elo: <%= player.live_elo %></p>
+              <% end %>
+              <p class="live_cat">LIVE</p>
+            </div>
+            <!-- fin 3.1 -->
+            <!-- 3.2 -->
+            <div class="online_stats lighter d-flex justify-content-between align-items-center">
+              <% if player.online_class.nil? %>
+                <div class="d-flex justify-content-between align-items-center">
+                  <%= image_tag "france.png" %>
+                  <p class="ml-1">N.C</p>
+                </div>
+                <p class="ml-1">Elo: N.C</p>
+              <% else %>
+                <div class="d-flex justify-content-between align-items-center">
+                  <%= image_tag "france.png" %>
+                  <p class="ml-1"><%= player.online_class %></p>
+                </div>
+                <p class="ml-1">Elo: <%= player.online_elo %></p>
+              <% end %>
+              <p class="online_cat">ONLINE</p>
+            </div>
+            <!-- fin 3.2 -->
+          </div>
+          <!-- fin 2.3 -->
         </div>
-        <!-- fin 2.3 -->
+        <!-- fin 1.2 -->
+        <% if user_signed_in? && policy(@players).update? %>
+          <div class="player-edit">
+            <%= link_to edit_player_path(player) do %>
+              <i class="fas fa-user-edit"></i>
+            <% end %>
+          </div>
+        <% end %>
       </div>
-      <!-- fin 1.2 -->
-      <% if user_signed_in? && policy(@players).update? %>
-        <div class="player-edit">
-          <%= link_to edit_player_path(player) do %>
-            <i class="fas fa-user-edit"></i>
-          <% end %>
+    <!-- fin de la card -->
+    <% end %>
+  </div>
+
+
+  <!-- classement online -->
+  <div class="online_classement">
+    <% @players_online.each_with_index do |player, index| %>
+      <div class="card_player d-flex justify-content-around align-items-center">
+        <!-- 1.1 -->
+        <div class="position">
+          <p><%= index + 1 %></p>
         </div>
-      <% end %>
-    </div>
-  <!-- fin de la card -->
-  <% end %>
+        <!-- fin 1.1 -->
+        <!-- 1.2 -->
+        <div class="d-flex justify-content-between align-items-center flex-grow-1">
+          <!-- 2.1 -->
+          <div class="players-illustration">
+            <h6><%= player.first_name.first.capitalize %> <%= player.last_name.first.capitalize %></h6>
+          </div>
+          <!-- fin 2.1 -->
+          <!-- 2.2 -->
+          <div class="identite mr-auto">
+            <p><%= player.first_name.capitalize %> <%= player.last_name.upcase %></p>
+          </div>
+          <!-- fin 2.2 -->
+          <!-- 2.3 -->
+          <div class="stats d-flex justify-content-between align-items-center">
+            <!-- 3.1 -->
+            <div class="live_stats lighter d-flex justify-content-between align-items-center">
+              <% if player.live_class.nil? %>
+                <div class="d-flex justify-content-between align-items-center">
+                  <%= image_tag "france.png" %>
+                  <p class="ml-1">N.C</p>
+                </div>
+                <p class="ml-1">Elo: N.C</p>
+              <% else %>
+                <div class="d-flex justify-content-between align-items-center">
+                  <%= image_tag "france.png" %>
+                  <p class="ml-1"><%= player.live_class %></p>
+                </div>
+                <p class="ml-1">Elo: <%= player.live_elo %></p>
+              <% end %>
+              <p class="live_cat">LIVE</p>
+            </div>
+            <!-- fin 3.1 -->
+            <!-- 3.2 -->
+            <div class="online_stats d-flex justify-content-between align-items-center">
+              <% if player.online_class.nil? %>
+                <div class="d-flex justify-content-between align-items-center">
+                  <%= image_tag "france.png" %>
+                  <p class="ml-1">N.C</p>
+                </div>
+                <p class="ml-1">Elo: N.C</p>
+              <% else %>
+                <div class="d-flex justify-content-between align-items-center">
+                  <%= image_tag "france.png" %>
+                  <p class="ml-1"><%= player.online_class %></p>
+                </div>
+                <p class="ml-1">Elo: <%= player.online_elo %></p>
+              <% end %>
+              <p class="online_cat">ONLINE</p>
+            </div>
+            <!-- fin 3.2 -->
+          </div>
+          <!-- fin 2.3 -->
+        </div>
+        <!-- fin 1.2 -->
+        <% if user_signed_in? && policy(@players).update? %>
+          <div class="player-edit">
+            <%= link_to edit_player_path(player) do %>
+              <i class="fas fa-user-edit"></i>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    <!-- fin de la card -->
+    <% end %>
+  </div>
+
   <div class="card-plus d-flex justify-content-center align-items-center">
     <% if user_signed_in? && policy(@players).create? %>
       <%= link_to new_player_path do %>
@@ -83,83 +163,6 @@
       <% end %>
     <% end %>
   </div>
-
-
-  <!-- classement online -->
-  <% @players_online.each_with_index do |player, index| %>
-    <div class="card_player d-flex justify-content-around align-items-center">
-      <!-- 1.1 -->
-      <div class="position">
-        <p><%= index + 1 %></p>
-      </div>
-      <!-- fin 1.1 -->
-      <!-- 1.2 -->
-      <div class="d-flex justify-content-between align-items-center flex-grow-1">
-        <!-- 2.1 -->
-        <div class="players-illustration">
-          <h6><%= player.first_name.first.capitalize %> <%= player.last_name.first.capitalize %></h6>
-        </div>
-        <!-- fin 2.1 -->
-        <!-- 2.2 -->
-        <div class="identite mr-auto">
-          <p><%= player.first_name.capitalize %> <%= player.last_name.upcase %></p>
-        </div>
-        <!-- fin 2.2 -->
-        <!-- 2.3 -->
-        <div class="stats d-flex justify-content-between align-items-center">
-          <!-- 3.1 -->
-          <div class="live_stats lighter d-flex justify-content-between align-items-center">
-            <% if player.live_class.nil? %>
-              <div class="d-flex justify-content-between align-items-center">
-                <%= image_tag "france.png" %>
-                <p class="ml-1">N.C</p>
-              </div>
-              <p class="ml-1">Elo: N.C</p>
-            <% else %>
-              <div class="d-flex justify-content-between align-items-center">
-                <%= image_tag "france.png" %>
-                <p class="ml-1"><%= player.live_class %></p>
-              </div>
-              <p class="ml-1">Elo: <%= player.live_elo %></p>
-            <% end %>
-            <p class="live_cat">LIVE</p>
-          </div>
-          <!-- fin 3.1 -->
-          <!-- 3.2 -->
-          <div class="online_stats d-flex justify-content-between align-items-center">
-            <% if player.online_class.nil? %>
-              <div class="d-flex justify-content-between align-items-center">
-                <%= image_tag "france.png" %>
-                <p class="ml-1">N.C</p>
-              </div>
-              <p class="ml-1">Elo: N.C</p>
-            <% else %>
-              <div class="d-flex justify-content-between align-items-center">
-                <%= image_tag "france.png" %>
-                <p class="ml-1"><%= player.online_class %></p>
-              </div>
-              <p class="ml-1">Elo: <%= player.online_elo %></p>
-            <% end %>
-            <p class="online_cat">ONLINE</p>
-          </div>
-          <!-- fin 3.2 -->
-        </div>
-        <!-- fin 2.3 -->
-      </div>
-      <!-- fin 1.2 -->
-      <% if user_signed_in? && policy(@players).update? %>
-        <div class="player-edit">
-          <%= link_to edit_player_path(player) do %>
-            <i class="fas fa-user-edit"></i>
-          <% end %>
-        </div>
-      <% end %>
-    </div>
-  <!-- fin de la card -->
-  <% end %>
-
-
-
 
 
 </div>

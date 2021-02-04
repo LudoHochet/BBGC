@@ -34,6 +34,8 @@ import { revealParagraphForm } from '../components/reveal_forms';
 import { revealLinkForm } from '../components/reveal_forms';
 import { revealSmallParagraphForm } from '../components/reveal_forms';
 import { revealSmallLinkForm } from '../components/reveal_forms';
+import { revealLive } from '../components/reveal_class';
+import { revealOnline } from '../components/reveal_class';
 // import { hideLinkForm } from '../components/hide_forms';
 // import { overCards } from '../components/over_article_cards';
 
@@ -54,5 +56,7 @@ document.addEventListener('turbolinks:load', () => {
   revealLinkForm();
   revealSmallParagraphForm();
   revealSmallLinkForm();
+  revealLive();
+  revealOnline();
   // hideLinkForm();
 });
